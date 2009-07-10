@@ -1,0 +1,6 @@
+﻿/* Localized strings in AppTrap */
+
+"You are moving an application to the trash, do you want to move its associated system files too?" = "Du er i ferd med å flytte et program til papirkurven, ønsker du å flytte de tilhørende systemfilene også?";
+"No files will be deleted until you empty the trash." = "Ingen filer vil slettes før du tømmer papirkurven";
+"Leave files" = "Behold filer";
+"Move files" = "Flytt filer";

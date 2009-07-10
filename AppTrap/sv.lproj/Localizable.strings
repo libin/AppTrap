@@ -1,0 +1,6 @@
+﻿/* Localized strings in AppTrap */
+
+"You are moving an application to the trash, do you want to move its associated system files too?" = "Du slänger ett program i papperskorgen, vill du slänga de tillhörande systemfilerna också?";
+"No files will be deleted until you empty the trash." = "Inga filer kommer att raderas förrän du tömmer papperskorgen.";
+"Leave files" = "Låt filerna vara";
+"Move files" = "Flytta filerna";
