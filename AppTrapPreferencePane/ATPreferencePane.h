@@ -19,6 +19,7 @@
 */
 
 #import <PreferencePanes/PreferencePanes.h>
+#import "ATSUUpdater.h"
 
 @interface ATPreferencePane : NSPreferencePane 
 {
@@ -27,6 +28,7 @@
     IBOutlet NSTextField *statusText;
     IBOutlet NSButton *startStopButton;
     IBOutlet NSButton *startOnLoginButton;
+	IBOutlet NSButton *automaticallyCheckForUpdate;
     IBOutlet NSTextView *aboutView;
 }
 
@@ -41,6 +43,8 @@
 - (void)addToLoginItems;
 - (void)removeFromLoginItems;
 
+- (IBAction)automaticallyCheckForUpdate:(id)sender;
+- (IBAction)checkForUpdate:(id)sender;
 - (IBAction)startStopAppTrap:(id)sender;
 - (IBAction)startOnLogin:(id)sender;
 - (IBAction)visitWebsite:(id)sender;

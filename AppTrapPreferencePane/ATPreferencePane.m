@@ -26,9 +26,11 @@
 
 - (void)mainViewDidLoad
 {
+	[[ATSUUpdater sharedUpdater] resetUpdateCycle];
     // Setup the application path
     appPath = [[[self bundle] pathForResource:@"AppTrap" ofType:@"app"] retain];
-    
+	[automaticallyCheckForUpdate setState:[[ATSUUpdater sharedUpdater] automaticallyChecksForUpdates]];
+
     // Restart AppTrap in case the user just updated to a new version
     // TODO: Check AppTrap's version against the prefpane version and only restart if they differ
     // TODO: Leave this off for now, something goes haywire on startup
@@ -46,7 +48,7 @@
     // Replace the {APPTRAP_VERSION} symbol with the version number
     NSRange versionSymbolRange = [[aboutView string] rangeOfString:@"{APPTRAP_VERSION}"];
     if (versionSymbolRange.location != NSNotFound)
-        [[aboutView textStorage] replaceCharactersInRange:versionSymbolRange withString:[[self bundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
+        [[aboutView textStorage] replaceCharactersInRange:versionSymbolRange withString:[[self bundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     
     // Register for notifications from AppTrap
     NSDistributedNotificationCenter *nc = [NSDistributedNotificationCenter defaultCenter];
@@ -64,10 +66,14 @@
  suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
 }
 
+- (SUUpdater*)updater {
+	return [SUUpdater updaterForBundle:[NSBundle bundleForClass:[self class]]];
+}
+
 - (void)didSelect
 {
     [self updateStatus];
-    [self checkForUpdate];
+    //[self checkForUpdate];
 }
 
 - (void)updateStatus
@@ -139,6 +145,13 @@
 
 #pragma mark -
 #pragma mark Update check
+- (IBAction)automaticallyCheckForUpdate:(id)sender {
+	[[ATSUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:[sender state]];
+}
+
+- (IBAction)checkForUpdate:(id)sender {
+	[[ATSUUpdater sharedUpdater] checkForUpdates:sender];
+}
 
 - (void)checkForUpdate
 {
