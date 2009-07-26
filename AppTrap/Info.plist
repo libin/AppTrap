@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.6 Beta 2</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -19,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.5</string>
+	<string>10</string>
 	<key>LSUIElement</key>
 	<string>1</string>
 	<key>NSMainNibFile</key>
@@ -30,9 +32,9 @@
 	<string>KOVS</string>
 	<key>SmartCrashReports_EmailTicket</key>
 	<string>SCR-0AB11B9C98</string>
-    <key>LSMinimumSystemVersion</key>
-    <string>10.4.0</string>
-    <key>NSHumanReadableCopyright</key>
-    <string>© Konst och vanliga saker, 2007-2008</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.4.0</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© Konst och vanliga saker, 2007-2008</string>
 </dict>
 </plist>

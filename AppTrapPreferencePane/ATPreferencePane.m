@@ -270,13 +270,7 @@
 
 - (IBAction)visitWebsite:(id)sender
 {
-    NSURL *url = [NSURL URLWithString:@"http://konstochvanligasaker.se/apptrap"];
-    [[NSWorkspace sharedWorkspace] openURL:url];
-}
-
-- (IBAction)donate:(id)sender
-{
-    NSURL *url = [NSURL URLWithString:@"http://konstochvanligasaker.se/apptrap/blog/?page_id=13"];
+    NSURL *url = [NSURL URLWithString:@"http://onnati.net/apptrap/"];
     [[NSWorkspace sharedWorkspace] openURL:url];
 }
 

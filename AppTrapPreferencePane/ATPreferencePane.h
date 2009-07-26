@@ -48,6 +48,5 @@
 - (IBAction)startStopAppTrap:(id)sender;
 - (IBAction)startOnLogin:(id)sender;
 - (IBAction)visitWebsite:(id)sender;
-- (IBAction)donate:(id)sender;
 
 @end
