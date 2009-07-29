@@ -55,14 +55,22 @@
 			<dict>
 				<key>aboutView</key>
 				<string>NSTextView</string>
+				<key>appTrapRestartWindow</key>
+				<string>NSWindow</string>
 				<key>automaticallyCheckForUpdate</key>
 				<string>NSButton</string>
+				<key>restartingAppTrapIndicator</key>
+				<string>NSProgressIndicator</string>
+				<key>restartingAppTrapTextField</key>
+				<string>NSTextField</string>
 				<key>startOnLoginButton</key>
 				<string>NSButton</string>
 				<key>startStopButton</key>
 				<string>NSButton</string>
 				<key>statusText</key>
 				<string>NSTextField</string>
+				<key>window</key>
+				<string>NSWindow</string>
 			</dict>
 			<key>SUPERCLASS</key>
 			<string>NSPreferencePane</string>

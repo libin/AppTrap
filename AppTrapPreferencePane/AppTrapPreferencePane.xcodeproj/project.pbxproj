@@ -17,6 +17,7 @@
 		7D0EFC27100B9805005B4F39 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7D0EFC18100B97E6005B4F39 /* Sparkle.framework */; };
 		7D992EB5100BE7B100DDA632 /* ATSUUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D992EB4100BE7B100DDA632 /* ATSUUpdater.m */; };
 		7D992EBB100BEB3200DDA632 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 7D992EBA100BEB3200DDA632 /* dsa_pub.pem */; };
+		7DA59D4510201A08002EBE1E /* ATVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA59D4410201A08002EBE1E /* ATVariables.m */; };
 		7DEB002710156A84001F11ED /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DEB002610156A84001F11ED /* CoreServices.framework */; };
 		8D202CEE0486D31800D8A456 /* AppTrapPreferencePane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = F506C040013D9D8001CA16C8 /* AppTrapPreferencePane.tiff */; };
 		8D202CEF0486D31800D8A456 /* AppTrapPreferencePane.nib in Resources */ = {isa = PBXBuildFile; fileRef = F506C042013D9D8C01CA16C8 /* AppTrapPreferencePane.nib */; };
@@ -99,6 +100,8 @@
 		7D992EB3100BE7B100DDA632 /* ATSUUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSUUpdater.h; sourceTree = "<group>"; };
 		7D992EB4100BE7B100DDA632 /* ATSUUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSUUpdater.m; sourceTree = "<group>"; };
 		7D992EBA100BEB3200DDA632 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		7DA59D4310201A08002EBE1E /* ATVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATVariables.h; path = ../AppTrap/ATVariables.h; sourceTree = SOURCE_ROOT; };
+		7DA59D4410201A08002EBE1E /* ATVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATVariables.m; path = ../AppTrap/ATVariables.m; sourceTree = SOURCE_ROOT; };
 		7DEB002610156A84001F11ED /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* AppTrap.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTrap.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +169,8 @@
 				287EF9A60C4F8DED002DB92D /* ATNotifications.m */,
 				F506C03C013D9D7901CA16C8 /* ATPreferencePane.h */,
 				F506C03D013D9D7901CA16C8 /* ATPreferencePane.m */,
+				7DA59D4310201A08002EBE1E /* ATVariables.h */,
+				7DA59D4410201A08002EBE1E /* ATVariables.m */,
 				7D992EB3100BE7B100DDA632 /* ATSUUpdater.h */,
 				7D992EB4100BE7B100DDA632 /* ATSUUpdater.m */,
 			);
@@ -325,6 +330,7 @@
 				281853260C09F7DC0020DDF3 /* UKLoginItemRegistry.m in Sources */,
 				287EF9A70C4F8DED002DB92D /* ATNotifications.m in Sources */,
 				7D992EB5100BE7B100DDA632 /* ATSUUpdater.m in Sources */,
+				7DA59D4510201A08002EBE1E /* ATVariables.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,7 @@
 
 #import "ATPreferencePane.h"
 #import "ATNotifications.h"
+#import "ATVariables.h"
 #import "UKLoginItemRegistry.h"
 
 @implementation ATPreferencePane
@@ -27,6 +28,8 @@
 - (void)mainViewDidLoad
 {
 	[[ATSUUpdater sharedUpdater] resetUpdateCycle];
+	[[ATSUUpdater sharedUpdater] setDelegate:self];
+		
     // Setup the application path
     appPath = [[[self bundle] pathForResource:@"AppTrap" ofType:@"app"] retain];
 	[automaticallyCheckForUpdate setState:[[ATSUUpdater sharedUpdater] automaticallyChecksForUpdates]];
@@ -38,18 +41,20 @@
         [self launchAppTrap];*/
         
     // Check if application is in login items
-    if ([self inLoginItems])
-        [startOnLoginButton setState:NSOnState];
-    else
-        [startOnLoginButton setState:NSOffState];
+    if ([self inLoginItems]) {
+		[startOnLoginButton setState:NSOnState];
+	} else {
+		[startOnLoginButton setState:NSOffState];
+	}
     
     // Display read me file
     [aboutView readRTFDFromFile:[[self bundle] pathForResource:@"Read Me" ofType:@"rtf"]];
     // Replace the {APPTRAP_VERSION} symbol with the version number
     NSRange versionSymbolRange = [[aboutView string] rangeOfString:@"{APPTRAP_VERSION}"];
-    if (versionSymbolRange.location != NSNotFound)
+    if (versionSymbolRange.location != NSNotFound){
         [[aboutView textStorage] replaceCharactersInRange:versionSymbolRange withString:[[self bundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
-    
+	}
+
     // Register for notifications from AppTrap
     NSDistributedNotificationCenter *nc = [NSDistributedNotificationCenter defaultCenter];
     
@@ -64,10 +69,57 @@
                name:ATApplicationTerminatedNotification
              object:nil
  suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
+	
+	[nc addObserver:self
+		   selector:@selector(checkBackgroundProcessVersion:) 
+			   name:ATApplicationGetVersionData 
+			 object:nil 
+ suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
+	
+	[nc postNotificationName:ATApplicationSendVersionData 
+					  object:nil 
+					userInfo:nil 
+		  deliverImmediately:YES];
 }
 
-- (SUUpdater*)updater {
-	return [SUUpdater updaterForBundle:[NSBundle bundleForClass:[self class]]];
+- (void)checkBackgroundProcessVersion:(NSNotification*)notification {
+	NSLog(@"checkBackgroundProcessVersion");
+	NSLog(@"notification: %@", [notification description]);
+	NSLog(@"notification userInfo class: %@", [[notification userInfo] className]);
+	NSLog(@"notification userInfo: %@", [[notification userInfo] description]);
+	
+	NSString *backgroundProcessVersion = [[notification userInfo] objectForKey:ATBackgroundProcessVersion];
+	int backgroundProcessVersionInt = [backgroundProcessVersion intValue];
+	NSString *prefpaneVersion = [[self bundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+	int prefpaneVersionInt = [prefpaneVersion intValue];
+	
+	if (prefpaneVersionInt != backgroundProcessVersionInt) {
+		NSBeginAlertSheet(@"AppTrap", 
+						  NSLocalizedStringFromTableInBundle(@"Restart AppTrap", nil, [self bundle], @""), 
+						  NSLocalizedStringFromTableInBundle(@"Don't restart AppTrap", nil, [self bundle], @""), 
+						  nil, 
+						  [startStopButton window], 
+						  self, 
+						  @selector(sheetDidEnd:returnCode:contextInfo:), 
+						  nil, 
+						  nil, 
+						  NSLocalizedStringFromTableInBundle(@"The background process is an older version. Would you like to restart it with the newer version?", nil, [self bundle], @""));
+	}
+}
+
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void  *)contextInfo {
+	if (returnCode == NSAlertDefaultReturn) {
+		[restartingAppTrapIndicator startAnimation:nil];
+		[restartingAppTrapTextField setHidden:NO];
+		[self terminateAppTrap];
+		[self performSelector:@selector(restartWithNewVersion) withObject:nil afterDelay:5];
+	}
+}
+
+- (void)restartWithNewVersion {
+	[self launchAppTrap];
+	[restartingAppTrapIndicator stopAnimation:nil];
+	[restartingAppTrapTextField setHidden:YES];
 }
 
 - (void)didSelect
@@ -100,6 +152,7 @@
 - (void)launchAppTrap
 {    
     // Try to launch AppTrap
+	NSLog(@"launching AppTrap");
 	NSURL *appURL = [NSURL fileURLWithPath:appPath];
 	unsigned options = NSWorkspaceLaunchWithoutAddingToRecents | NSWorkspaceLaunchWithoutActivation | NSWorkspaceLaunchAsync;
     
@@ -115,6 +168,7 @@
 
 - (void)terminateAppTrap
 {
+	NSLog(@"terminating Apptrap");
     NSDistributedNotificationCenter *nc = [NSDistributedNotificationCenter defaultCenter];
     [nc postNotificationName:ATApplicationShouldTerminateNotification
                       object:nil
@@ -145,80 +199,17 @@
 
 #pragma mark -
 #pragma mark Update check
+
+- (SUUpdater*)updater {
+	return [SUUpdater updaterForBundle:[NSBundle bundleForClass:[self class]]];
+}
+
 - (IBAction)automaticallyCheckForUpdate:(id)sender {
 	[[ATSUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:[sender state]];
 }
 
 - (IBAction)checkForUpdate:(id)sender {
 	[[ATSUUpdater sharedUpdater] checkForUpdates:sender];
-}
-
-- (void)checkForUpdate
-{
-    // create the request
-    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://svn.konstochvanligasaker.se/apptrap/latest_version"]
-                                                cachePolicy:NSURLRequestReloadIgnoringCacheData
-                                            timeoutInterval:30.0];
-    
-    // create the connection with the request and start loading the data
-    NSURLDownload  *theDownload = [[NSURLDownload alloc] initWithRequest:theRequest
-                                                                delegate:self];
-    
-    if (theDownload) {
-        // set the destination file now
-        [theDownload setDestination:@"/tmp/apptrap_latest_version" allowOverwrite:YES];
-    }
-}
-
-- (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error
-{
-    // release the connection
-    [download release];
-    
-    // inform the user (sort of!)
-    NSLog(@"Couldn't get latest version! Error - %@ %@", [error localizedDescription],
-          [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
-}
-
-- (void)downloadDidFinish:(NSURLDownload *)download
-{
-    // release the connection
-    [download release];
-    
-    // do something with the data
-    NSString *latestVersion = [NSString stringWithContentsOfFile:@"/tmp/apptrap_latest_version"];
-    
-    if (latestVersion) {
-        // What version are we using now?
-        // We must get the current version explicitly from the Info.plist file. Getting it from our bundle would give us an old version string, since that would use the currently loaded bundle
-        NSString *plist = [[[self bundle] bundlePath] stringByAppendingPathComponent:@"Contents/Info.plist"];
-        NSDictionary *theDictionary = [NSDictionary dictionaryWithContentsOfFile:plist];
-        NSString *currentVersion = [[[theDictionary valueForKey:@"CFBundleVersion"] componentsSeparatedByString:@"."] componentsJoinedByString:@""];
-        
-        int old = [currentVersion intValue];
-        int new = [latestVersion intValue];
-        
-        if (new > old) {
-            // A new version is available, prompt the user
-            NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-            [alert addButtonWithTitle:NSLocalizedStringFromTableInBundle(@"Download", nil, [self bundle], @"")];
-            [alert addButtonWithTitle:NSLocalizedStringFromTableInBundle(@"Don't download", nil, [self bundle], @"")];
-            [alert setMessageText:NSLocalizedStringFromTableInBundle(@"New version", nil, [self bundle], @"")];
-            [alert setInformativeText:NSLocalizedStringFromTableInBundle(@"A new version of AppTrap is available, do you want to download it now?", nil, [self bundle], @"")];
-            [alert setAlertStyle:NSWarningAlertStyle];
-            
-            [alert beginSheetModalForWindow:[[self mainView] window] modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        }
-    }
-}
-
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo
-{
-    if (returnCode == NSAlertFirstButtonReturn) {
-        // Let's download the latest version of AppTrap
-        NSURL *downloadURL = [NSURL URLWithString:@"http://konstochvanligasaker.se/apptrap/AppTrap.dmg"];
-        [[NSWorkspace sharedWorkspace] openURL:downloadURL];
-    }
 }
 
 #pragma mark -

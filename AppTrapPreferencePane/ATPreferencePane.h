@@ -30,14 +30,16 @@
     IBOutlet NSButton *startOnLoginButton;
 	IBOutlet NSButton *automaticallyCheckForUpdate;
     IBOutlet NSTextView *aboutView;
+	IBOutlet NSProgressIndicator *restartingAppTrapIndicator;
+	IBOutlet NSTextField *restartingAppTrapTextField;
+	IBOutlet NSWindow *window;
+	IBOutlet NSWindow *appTrapRestartWindow;
 }
 
 - (void)updateStatus;
 - (void)launchAppTrap;
 - (void)terminateAppTrap;
 - (BOOL)appTrapIsRunning;
-- (void)checkForUpdate;
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 
 - (BOOL)inLoginItems;
 - (void)addToLoginItems;

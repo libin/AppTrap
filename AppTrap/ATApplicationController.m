@@ -21,6 +21,7 @@
 #import "ATApplicationController.h"
 #import "ATArrayController.h"
 #import "ATNotifications.h"
+#import "ATVariables.h"
 #import "UKKQueue.h"
 #import "ATUserDefaultKeys.h"
 
@@ -95,6 +96,12 @@ const int kWindowExpansionAmount = 164;
                    name:ATApplicationShouldTerminateNotification
                  object:nil
      suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
+		
+		[nc addObserver:self
+			   selector:@selector(sendVersion) 
+				   name:ATApplicationSendVersionData 
+				 object:nil
+	 suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
     }
     
     return self;
@@ -160,6 +167,18 @@ const int kWindowExpansionAmount = 164;
     if (isExpanded)
         newFrame.size.height += [filelistView frame].size.height + 20;
     [mainWindow setFrame:newFrame display:NO];
+}
+
+- (void)sendVersion {
+	NSDistributedNotificationCenter *nc = [NSDistributedNotificationCenter defaultCenter];
+	NSDictionary *version = [NSDictionary dictionaryWithObject:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] 
+														forKey:ATBackgroundProcessVersion];
+	//NSLog(@"sendVersion");
+	
+	[nc postNotificationName:ATApplicationGetVersionData 
+					  object:nil 
+					userInfo:version 
+		  deliverImmediately:YES];
 }
 
 // A dealloc method is not needed since our only instance of

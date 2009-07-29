@@ -19,12 +19,6 @@
  Created by Kumaran Vijayan on 13/07/09.
  */
 
-#import <Cocoa/Cocoa.h>
-#import <Sparkle/Sparkle.h>
+#import "ATVariables.h"
 
-@interface ATSUUpdater : SUUpdater {
-
-}
-+(id)sharedUpdater;
--(id)init;
-@end
+NSString *ATBackgroundProcessVersion = @"ATBackgroundProcessVersion";
