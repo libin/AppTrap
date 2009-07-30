@@ -29,19 +29,7 @@
 		281852060C09DAC20020DDF3 /* ATNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATNotifications.m; sourceTree = "<group>"; };
 		281A7E5E0CFDC16500E5207C /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		281A7FD40CFDED9000E5207C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FD50CFDED9400E5207C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FD60CFDED9900E5207C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FD70CFDED9D00E5207C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FD80CFDEDA000E5207C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FD90CFDEDA300E5207C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FDA0CFDEDA700E5207C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		281A7FDB0CFDEDAA00E5207C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FDC0CFDEDAC00E5207C /* no */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FDD0CFDEDAF00E5207C /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FDE0CFDEDB300E5207C /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FDF0CFDEDB600E5207C /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FE00CFDEDB800E5207C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FE10CFDEDBC00E5207C /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/Localizable.strings; sourceTree = "<group>"; };
 		284B38A90B78CF870008BFD5 /* ATArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATArrayController.h; sourceTree = "<group>"; };
 		284B38AA0B78CF870008BFD5 /* ATArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATArrayController.m; sourceTree = "<group>"; };
 		287A24B20B854E480077B852 /* ATTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTextFieldCell.h; sourceTree = "<group>"; };
@@ -289,19 +277,7 @@
 			children = (
 				281A7E5E0CFDC16500E5207C /* English */,
 				281A7FD40CFDED9000E5207C /* da */,
-				281A7FD50CFDED9400E5207C /* de */,
-				281A7FD60CFDED9900E5207C /* es */,
-				281A7FD70CFDED9D00E5207C /* fi */,
-				281A7FD80CFDEDA000E5207C /* fr */,
-				281A7FD90CFDEDA300E5207C /* it */,
-				281A7FDA0CFDEDA700E5207C /* ja */,
 				281A7FDB0CFDEDAA00E5207C /* nl */,
-				281A7FDC0CFDEDAC00E5207C /* no */,
-				281A7FDD0CFDEDAF00E5207C /* pl */,
-				281A7FDE0CFDEDB300E5207C /* pt_BR */,
-				281A7FDF0CFDEDB600E5207C /* sv */,
-				281A7FE00CFDEDB800E5207C /* tr */,
-				281A7FE10CFDEDBC00E5207C /* zh_TW */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

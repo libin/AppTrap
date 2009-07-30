@@ -1,6 +1,0 @@
-﻿/* Localized strings in AppTrap */
-
-"You are moving an application to the trash, do you want to move its associated system files too?" = "你正搬了一個應用程式到垃圾桶，是否也要移除與它相關聯的系統檔案？";
-"No files will be deleted until you empty the trash." = "清空垃圾桶之前沒有檔案會被真正刪除";
-"Leave files" = "留下檔案";
-"Move files" = "移除檔案";
