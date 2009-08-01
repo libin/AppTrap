@@ -28,7 +28,6 @@
 		281852050C09DAC20020DDF3 /* ATNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATNotifications.h; sourceTree = "<group>"; };
 		281852060C09DAC20020DDF3 /* ATNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATNotifications.m; sourceTree = "<group>"; };
 		281A7E5E0CFDC16500E5207C /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281A7FD40CFDED9000E5207C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		281A7FDB0CFDEDAA00E5207C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		284B38A90B78CF870008BFD5 /* ATArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATArrayController.h; sourceTree = "<group>"; };
 		284B38AA0B78CF870008BFD5 /* ATArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATArrayController.m; sourceTree = "<group>"; };
@@ -276,7 +275,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				281A7E5E0CFDC16500E5207C /* English */,
-				281A7FD40CFDED9000E5207C /* da */,
 				281A7FDB0CFDEDAA00E5207C /* nl */,
 			);
 			name = Localizable.strings;

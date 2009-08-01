@@ -7,7 +7,7 @@
 	<key>SUAllowsAutomaticUpdates</key>
 	<string>NO</string>
 	<key>SUFeedURL</key>
-	<string>http://onnati.net/apptrap/AppTrapUpdateRealTest.xml</string>
+	<string>http://onnati.net/apptrap/AppTrapUpdateTest.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -25,11 +25,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.6 Beta 3</string>
+	<string>1.1 Beta 3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>12</string>
+	<string>13</string>
 	<key>NSMainNibFile</key>
 	<string>AppTrapPreferencePane</string>
 	<key>NSPrefPaneIconFile</key>

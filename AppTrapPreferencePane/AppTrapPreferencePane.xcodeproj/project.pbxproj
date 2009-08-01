@@ -48,9 +48,6 @@
 		281853210C09F7DC0020DDF3 /* UKLoginItemRegistry Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UKLoginItemRegistry Readme.txt"; sourceTree = "<group>"; };
 		281853220C09F7DC0020DDF3 /* UKLoginItemRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKLoginItemRegistry.h; sourceTree = "<group>"; };
 		281853230C09F7DC0020DDF3 /* UKLoginItemRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKLoginItemRegistry.m; sourceTree = "<group>"; };
-		281AB23E0C52346C007165F6 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
-		281AB2410C523475007165F6 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = da; path = "da.lproj/Read Me.rtf"; sourceTree = "<group>"; };
-		281AB2440C523484007165F6 /* da */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = da; path = da.lproj/AppTrapPreferencePane.nib; sourceTree = "<group>"; };
 		287EF8B90C4F8A52002DB92D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		287EF8D60C4F8C30002DB92D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = nl; path = "nl.lproj/Read Me.rtf"; sourceTree = "<group>"; };
 		287EF8E30C4F8CBE002DB92D /* nl */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = nl; path = nl.lproj/AppTrapPreferencePane.nib; sourceTree = "<group>"; };
@@ -306,7 +303,6 @@
 			children = (
 				28F272BB0C3A233500B1604F /* English */,
 				287EF8D60C4F8C30002DB92D /* nl */,
-				281AB2410C523475007165F6 /* da */,
 			);
 			name = "Read Me.rtf";
 			sourceTree = "<group>";
@@ -316,7 +312,6 @@
 			children = (
 				28A46DD10C43ED75007925EB /* English */,
 				287EF8B90C4F8A52002DB92D /* nl */,
-				281AB23E0C52346C007165F6 /* da */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -326,7 +321,6 @@
 			children = (
 				F506C043013D9D8C01CA16C8 /* English */,
 				287EF8E30C4F8CBE002DB92D /* nl */,
-				281AB2440C523484007165F6 /* da */,
 			);
 			name = AppTrapPreferencePane.nib;
 			sourceTree = "<group>";

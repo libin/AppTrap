@@ -40,6 +40,8 @@
 - (void)launchAppTrap;
 - (void)terminateAppTrap;
 - (BOOL)appTrapIsRunning;
+- (void)checkBackgroundProcessVersion:(NSNotification*)notification;
+- (void)checkBackgroundProcessVersion;
 
 - (BOOL)inLoginItems;
 - (void)addToLoginItems;

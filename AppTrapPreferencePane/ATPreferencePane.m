@@ -32,6 +32,7 @@
 		
     // Setup the application path
     appPath = [[[self bundle] pathForResource:@"AppTrap" ofType:@"app"] retain];
+	
 	[automaticallyCheckForUpdate setState:[[ATSUUpdater sharedUpdater] automaticallyChecksForUpdates]];
 
     // Restart AppTrap in case the user just updated to a new version
@@ -79,7 +80,7 @@
 	[nc postNotificationName:ATApplicationSendVersionData 
 					  object:nil 
 					userInfo:nil 
-		  deliverImmediately:YES];
+		  deliverImmediately:YES];	
 }
 
 - (void)checkBackgroundProcessVersion:(NSNotification*)notification {
@@ -103,12 +104,22 @@
 						  @selector(sheetDidEnd:returnCode:contextInfo:), 
 						  nil, 
 						  nil, 
-						  NSLocalizedStringFromTableInBundle(@"The background process is an older version. Would you like to restart it with the newer version?", nil, [self bundle], @""));
+						  NSLocalizedStringFromTableInBundle(@"The currently running AppTrap background process is an older version. Would you like to restart it with a newer version?\n\nYou can also restart it by press the \"Start/Stop AppTrap\" button.", nil, [self bundle], @""));
 	}
+}
+
+- (void)checkBackgroundProcessVersion {
+	NSDistributedNotificationCenter *nc = [NSDistributedNotificationCenter defaultCenter];
+	
+	[nc postNotificationName:ATApplicationSendVersionData 
+					  object:nil 
+					userInfo:nil 
+		  deliverImmediately:YES];	
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void  *)contextInfo {
 	if (returnCode == NSAlertDefaultReturn) {
+		[startStopButton setEnabled:NO];
 		[restartingAppTrapIndicator startAnimation:nil];
 		[restartingAppTrapTextField setHidden:NO];
 		[self terminateAppTrap];
@@ -120,12 +131,13 @@
 	[self launchAppTrap];
 	[restartingAppTrapIndicator stopAnimation:nil];
 	[restartingAppTrapTextField setHidden:YES];
+	[startStopButton setEnabled:YES];
 }
 
 - (void)didSelect
 {
     [self updateStatus];
-    //[self checkForUpdate];
+	[self checkBackgroundProcessVersion];
 }
 
 - (void)updateStatus
