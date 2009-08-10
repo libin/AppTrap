@@ -232,6 +232,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -277,7 +279,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>21</integer>
+									<integer>20</integer>
 									<integer>19</integer>
 									<integer>0</integer>
 								</array>
@@ -302,7 +304,7 @@
 							<real>220</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>137 153 1101 682 0 0 1440 878 </string>
+						<string>105 110 1101 682 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -313,8 +315,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -332,7 +332,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7DAF9CDA1024D2600048A644</string>
+										<string>7DDD0E13102E53AB00E7BE65</string>
 										<key>history</key>
 										<array>
 											<string>7D8E81C40FFACE7E0059EA10</string>
@@ -353,7 +353,7 @@
 											<string>7D5DA13B10213E1600A09DF7</string>
 											<string>7D5DA13C10213E1600A09DF7</string>
 											<string>7DAF9C0E1024B4510048A644</string>
-											<string>7DAF9C2B1024B7EF0048A644</string>
+											<string>7DA54154102D49A0002DD415</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -386,7 +386,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {859, 502}}</string>
 								<key>RubberWindowFrame</key>
-								<string>137 153 1101 682 0 0 1440 878 </string>
+								<string>105 110 1101 682 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -406,7 +406,7 @@
 								<key>Frame</key>
 								<string>{{0, 507}, {859, 134}}</string>
 								<key>RubberWindowFrame</key>
-								<string>137 153 1101 682 0 0 1440 878 </string>
+								<string>105 110 1101 682 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -430,9 +430,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7DAF9C4B1024B9600048A644</string>
+				<string>7DDD0E09102E4C9000E7BE65</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7DAF9C4C1024B9600048A644</string>
+				<string>7DDD0E0A102E4C9000E7BE65</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -582,7 +582,7 @@
 		<string>/Users/kumaranvijayan/Code/Mac/AppTrap/AppTrap/AppTrap.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>137 153 1101 682 0 0 1440 878 </string>
+	<string>105 110 1101 682 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -659,7 +659,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7D0EFCB8100BD0D7005B4F39</string>
-				<string>7DAF9CA11024C0040048A644</string>
+				<string>7DDD0E14102E53AB00E7BE65</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
