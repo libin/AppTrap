@@ -21,7 +21,7 @@
 #import "ATPreferencePane.h"
 #import "ATNotifications.h"
 #import "ATVariables.h"
-#import "UKLoginItemRegistry.h"
+//#import "UKLoginItemRegistry.h"
 
 @implementation ATPreferencePane
 
@@ -32,6 +32,7 @@
 		
     // Setup the application path
     appPath = [[[self bundle] pathForResource:@"AppTrap" ofType:@"app"] retain];
+	NSLog(@"appPath: %@", appPath);
 	
 	[automaticallyCheckForUpdate setState:[[ATSUUpdater sharedUpdater] automaticallyChecksForUpdates]];
 
@@ -40,13 +41,16 @@
     // TODO: Leave this off for now, something goes haywire on startup
     /*if ([self appTrapIsRunning])
         [self launchAppTrap];*/
-        
+	CFURLRef appPathURL = (CFURLRef)[appPath copy];
+
     // Check if application is in login items
-    if ([self inLoginItems]) {
+    if ([self inLoginItems:LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL) forPath:appPathURL]) {
 		[startOnLoginButton setState:NSOnState];
 	} else {
 		[startOnLoginButton setState:NSOffState];
 	}
+	
+	CFRelease(appPathURL);
     
     // Display read me file
     [aboutView readRTFDFromFile:[[self bundle] pathForResource:@"Read Me" ofType:@"rtf"]];
@@ -226,29 +230,49 @@
 
 #pragma mark -
 #pragma mark Login items
-
-- (BOOL)inLoginItems
+- (BOOL)inLoginItems:(LSSharedFileListRef)theLoginItemsRefs forPath:(CFURLRef)thePath
 {
-    if ([UKLoginItemRegistry indexForLoginItemWithPath:appPath] > 0)
-        return YES;
-    else
-        return NO;
+	UInt32 seedValue;
+	
+	// We're going to grab the contents of the shared file list (LSSharedFileListItemRef objects)
+	// and pop it in an array so we can iterate through it to find our item.
+	NSArray  *loginItemsArray = (NSArray *)LSSharedFileListCopySnapshot(theLoginItemsRefs, &seedValue);
+	for (id item in loginItemsArray) {		
+		LSSharedFileListItemRef itemRef = (LSSharedFileListItemRef)item;
+		if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &thePath, NULL) == noErr) {
+			if ([[(NSURL *)thePath path] hasPrefix:appPath]) {
+				return YES;
+			}
+		}
+	}
+	
+	return NO;
 }
 
-- (void)addToLoginItems
+- (void)addToLoginItems:(LSSharedFileListRef )theLoginItemsRefs forPath:(CFURLRef)thePath
 {
-    // Only if we're not in login items already
-    if (![self inLoginItems]) {
-        [UKLoginItemRegistry addLoginItemWithPath:appPath hideIt:NO];
-    }
+	LSSharedFileListItemRef item = LSSharedFileListInsertItemURL(theLoginItemsRefs, kLSSharedFileListItemLast, NULL, NULL, thePath, NULL, NULL);		
+	if (item) {
+		CFRelease(item);
+	}
 }
 
-- (void)removeFromLoginItems
+- (void)removeFromLoginItems:(LSSharedFileListRef )theLoginItemsRefs forPath:(CFURLRef)thePath
 {
-    // Only if we already are in login items
-    if ([self inLoginItems]) {
-        [UKLoginItemRegistry removeLoginItemWithPath:appPath];
-    }
+	UInt32 seedValue;
+	
+	// We're going to grab the contents of the shared file list (LSSharedFileListItemRef objects)
+	// and pop it in an array so we can iterate through it to find our item.
+	NSArray  *loginItemsArray = (NSArray *)LSSharedFileListCopySnapshot(theLoginItemsRefs, &seedValue);
+	for (id item in loginItemsArray) {		
+		LSSharedFileListItemRef itemRef = (LSSharedFileListItemRef)item;
+		if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &thePath, NULL) == noErr) {
+			if ([[(NSURL *)thePath path] hasPrefix:appPath])
+				LSSharedFileListItemRemove(theLoginItemsRefs, itemRef); // Deleting the item
+		}
+	}
+	
+	[loginItemsArray release];
 }
 
 #pragma mark -
@@ -256,19 +280,26 @@
 
 - (IBAction)startStopAppTrap:(id)sender
 {
-    if ([self appTrapIsRunning])
+	
+    if ([self appTrapIsRunning]) {
         [self terminateAppTrap];
-    else
+    } else {
         [self launchAppTrap];
+	}
 }
 
 - (IBAction)startOnLogin:(id)sender
 {
-    if ([sender state] == NSOnState)
-        [self addToLoginItems];
-    else
-        [self removeFromLoginItems];
-    
+	CFURLRef appPathURL = (CFURLRef)[NSURL fileURLWithPath:appPath];
+	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
+
+    if ([sender state] == NSOnState) {
+        [self addToLoginItems:loginItems forPath:appPathURL];
+	} else {
+        [self removeFromLoginItems:loginItems forPath:appPathURL];
+	}
+	
+    CFRelease(loginItems);
 }
 
 - (IBAction)visitWebsite:(id)sender

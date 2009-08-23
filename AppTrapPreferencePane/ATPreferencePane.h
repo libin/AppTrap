@@ -43,9 +43,9 @@
 - (void)checkBackgroundProcessVersion:(NSNotification*)notification;
 - (void)checkBackgroundProcessVersion;
 
-- (BOOL)inLoginItems;
-- (void)addToLoginItems;
-- (void)removeFromLoginItems;
+- (BOOL)inLoginItems:(LSSharedFileListRef)theLoginItemsRefs forPath:(CFURLRef)thePath;
+- (void)addToLoginItems:(LSSharedFileListRef )theLoginItemsRefs forPath:(CFURLRef)thePath;
+- (void)removeFromLoginItems:(LSSharedFileListRef )theLoginItemsRefs forPath:(CFURLRef)thePath;
 
 - (IBAction)automaticallyCheckForUpdate:(id)sender;
 - (IBAction)checkForUpdate:(id)sender;

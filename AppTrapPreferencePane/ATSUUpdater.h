@@ -26,5 +26,4 @@
 
 }
 +(id)sharedUpdater;
--(id)init;
 @end

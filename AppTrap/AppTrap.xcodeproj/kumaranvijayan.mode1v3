@@ -280,8 +280,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>20</integer>
-									<integer>19</integer>
+									<integer>25</integer>
+									<integer>24</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -305,7 +305,7 @@
 							<real>220</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>233 161 1101 682 0 0 1440 878 </string>
+						<string>139 143 1101 682 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -333,7 +333,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7DC34036103E2F9E0030BB35</string>
+										<string>7DB7FF1D1041C51A00310F74</string>
 										<key>history</key>
 										<array>
 											<string>7D8E81C40FFACE7E0059EA10</string>
@@ -354,7 +354,7 @@
 											<string>7D5DA13C10213E1600A09DF7</string>
 											<string>7DAF9C0E1024B4510048A644</string>
 											<string>7DC34030103E2F8B0030BB35</string>
-											<string>7D9D142E103CEB31001ABC1B</string>
+											<string>7DC34036103E2F9E0030BB35</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -374,7 +374,6 @@
 											<string>7D5DA10710213C0B00A09DF7</string>
 											<string>7D5DA10F10213C0B00A09DF7</string>
 											<string>7D5DA13110213D5100A09DF7</string>
-											<string>7DC34031103E2F8B0030BB35</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -388,7 +387,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {859, 502}}</string>
 								<key>RubberWindowFrame</key>
-								<string>233 161 1101 682 0 0 1440 878 </string>
+								<string>139 143 1101 682 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -408,7 +407,7 @@
 								<key>Frame</key>
 								<string>{{0, 507}, {859, 134}}</string>
 								<key>RubberWindowFrame</key>
-								<string>233 161 1101 682 0 0 1440 878 </string>
+								<string>139 143 1101 682 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -432,9 +431,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7DC34033103E2F8B0030BB35</string>
+				<string>7DB7FEEC1041C3C700310F74</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7DC34034103E2F8B0030BB35</string>
+				<string>7DB7FEED1041C3C700310F74</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -584,7 +583,7 @@
 		<string>/Users/kumaranvijayan/Code/Mac/AppTrap/AppTrap/AppTrap.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>233 161 1101 682 0 0 1440 878 </string>
+	<string>139 143 1101 682 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -661,7 +660,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7D0EFCB8100BD0D7005B4F39</string>
-				<string>7DC34037103E2F9E0030BB35</string>
+				<string>7DB7FEEE1041C3C700310F74</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
