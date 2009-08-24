@@ -41,11 +41,6 @@
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		2818531F0C09F7DC0020DDF3 /* LoginItemsAE.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LoginItemsAE.c; sourceTree = "<group>"; };
-		281853200C09F7DC0020DDF3 /* LoginItemsAE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginItemsAE.h; sourceTree = "<group>"; };
-		281853210C09F7DC0020DDF3 /* UKLoginItemRegistry Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UKLoginItemRegistry Readme.txt"; sourceTree = "<group>"; };
-		281853220C09F7DC0020DDF3 /* UKLoginItemRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKLoginItemRegistry.h; sourceTree = "<group>"; };
-		281853230C09F7DC0020DDF3 /* UKLoginItemRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKLoginItemRegistry.m; sourceTree = "<group>"; };
 		287EF8B90C4F8A52002DB92D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		287EF8D60C4F8C30002DB92D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = nl; path = "nl.lproj/Read Me.rtf"; sourceTree = "<group>"; };
 		287EF8E30C4F8CBE002DB92D /* nl */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = nl; path = nl.lproj/AppTrapPreferencePane.nib; sourceTree = "<group>"; };
@@ -90,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				08FB77AFFE84173DC02AAC07 /* Classes */,
-				281852A60C09F0BB0020DDF3 /* Third-party Classes */,
 				32DBCFA10370C40200C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
@@ -163,26 +157,6 @@
 				28830C420BF8BE400096A7CE /* AppTrap.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		281852A60C09F0BB0020DDF3 /* Third-party Classes */ = {
-			isa = PBXGroup;
-			children = (
-				2818531E0C09F7DC0020DDF3 /* UKLoginItemRegistry */,
-			);
-			name = "Third-party Classes";
-			sourceTree = "<group>";
-		};
-		2818531E0C09F7DC0020DDF3 /* UKLoginItemRegistry */ = {
-			isa = PBXGroup;
-			children = (
-				281853200C09F7DC0020DDF3 /* LoginItemsAE.h */,
-				2818531F0C09F7DC0020DDF3 /* LoginItemsAE.c */,
-				281853210C09F7DC0020DDF3 /* UKLoginItemRegistry Readme.txt */,
-				281853220C09F7DC0020DDF3 /* UKLoginItemRegistry.h */,
-				281853230C09F7DC0020DDF3 /* UKLoginItemRegistry.m */,
-			);
-			path = UKLoginItemRegistry;
 			sourceTree = "<group>";
 		};
 		32DBCFA10370C40200C91783 /* Other Sources */ = {

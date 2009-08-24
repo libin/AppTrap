@@ -140,6 +140,16 @@
 
 - (void)didSelect
 {
+	CFURLRef appPathURL = (CFURLRef)[appPath copy];
+	
+	if ([self inLoginItems:LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL) 
+				   forPath:appPathURL]) {
+		[startOnLoginButton setState:NSOnState];
+	} else {
+		[startOnLoginButton setState:NSOffState];
+	}
+	CFRelease(appPathURL);
+	
     [self updateStatus];
 	[self checkBackgroundProcessVersion];
 }
