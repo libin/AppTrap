@@ -108,7 +108,7 @@
 						  @selector(sheetDidEnd:returnCode:contextInfo:), 
 						  nil, 
 						  nil, 
-						  NSLocalizedStringFromTableInBundle(@"The currently running AppTrap background process is an older version. Would you like to restart it with a newer version?\n\nYou can also restart it by press the \"Start/Stop AppTrap\" button.", nil, [self bundle], @""));
+						  NSLocalizedStringFromTableInBundle(@"The currently running AppTrap background process is an older version. Would you like to restart it with a newer version?\n\nYou can also restart it by pressing the \"Start/Stop AppTrap\" button.", nil, [self bundle], @""));
 	}
 }
 

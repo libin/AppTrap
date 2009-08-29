@@ -2,5 +2,3 @@ BUILDING
 
 1. Build the AppTrap project
 2. Build the AppTrapPreferencePane project
-
-To build a universal binary, packaged on a ready-to-release DMG, run "sh build-dmg".
