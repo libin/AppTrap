@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -300,7 +302,7 @@
 							<real>220</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>131 134 1101 682 0 0 1440 878 </string>
+						<string>132 134 1101 682 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -311,14 +313,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Localizable.strings</string>
+								<string>Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,11 +326,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Localizable.strings</string>
-										<key>_historyCapacity</key>
-										<integer>0</integer>
-										<key>bookmark</key>
-										<string>7D3C77461048B93400009126</string>
+										<string>Info.plist</string>
 										<key>history</key>
 										<array>
 											<string>7D8E81C40FFACE7E0059EA10</string>
@@ -345,9 +341,8 @@
 											<string>7D5DA0FF10213C0B00A09DF7</string>
 											<string>7D5DA10010213C0B00A09DF7</string>
 											<string>7D5DA13C10213E1600A09DF7</string>
-											<string>7D681BD31047AE7300D2D2E3</string>
 											<string>7D681BD41047AE7300D2D2E3</string>
-											<string>7D857BEB1048789D008D4FAB</string>
+											<string>7D681BD31047AE7300D2D2E3</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -359,14 +354,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {859, 493}}</string>
+								<string>{{0, 0}, {859, 483}}</string>
 								<key>RubberWindowFrame</key>
-								<string>131 134 1101 682 0 0 1440 878 </string>
+								<string>132 134 1101 682 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>493pt</string>
+							<string>483pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -379,14 +374,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 498}, {859, 143}}</string>
+								<string>{{0, 488}, {859, 153}}</string>
 								<key>RubberWindowFrame</key>
-								<string>131 134 1101 682 0 0 1440 878 </string>
+								<string>132 134 1101 682 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>143pt</string>
+							<string>153pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -405,9 +400,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7D3C771C1048B3A500009126</string>
+				<string>7D3C77B31048CF4A00009126</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7D3C771D1048B3A500009126</string>
+				<string>7D3C77B41048CF4A00009126</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -559,7 +554,7 @@
 		<string>/Users/kumaranvijayan/Code/Mac/AppTrap/trunk/AppTrap/AppTrap.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>131 134 1101 682 0 0 1440 878 </string>
+	<string>132 134 1101 682 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -636,7 +631,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7D0EFCB8100BD0D7005B4F39</string>
-				<string>7D3C771E1048B3A500009126</string>
+				<string>7D3C77B51048CF4A00009126</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

@@ -11,6 +11,8 @@
 		28A46D860C43E6CF007925EB /* Read Me.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 28A46D850C43E6CF007925EB /* Read Me.rtf */; };
 		28A46DD60C43ED87007925EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28A46DD50C43ED87007925EB /* Localizable.strings */; };
 		28F272B70C3A231900B1604F /* AppTrap.app in Resources */ = {isa = PBXBuildFile; fileRef = 28830C420BF8BE400096A7CE /* AppTrap.app */; };
+		7D3C77BA1048CF5B00009126 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D3C77B91048CF5B00009126 /* Sparkle.framework */; };
+		7D3C77E61048CF6300009126 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7D3C77B91048CF5B00009126 /* Sparkle.framework */; };
 		7D992EB5100BE7B100DDA632 /* ATSUUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D992EB4100BE7B100DDA632 /* ATSUUpdater.m */; };
 		7D992EBB100BEB3200DDA632 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 7D992EBA100BEB3200DDA632 /* dsa_pub.pem */; };
 		7DA59D4510201A08002EBE1E /* ATVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA59D4410201A08002EBE1E /* ATVariables.m */; };
@@ -29,6 +31,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7D3C77E61048CF6300009126 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +50,7 @@
 		28A46DD10C43ED75007925EB /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28F272BB0C3A233500B1604F /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = "English.lproj/Read Me.rtf"; sourceTree = "<group>"; };
 		32DBCFA20370C41700C91783 /* AppTrapPreferencePane_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTrapPreferencePane_Prefix.pch; sourceTree = "<group>"; };
+		7D3C77B91048CF5B00009126 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		7D992EB3100BE7B100DDA632 /* ATSUUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSUUpdater.h; sourceTree = "<group>"; };
 		7D992EB4100BE7B100DDA632 /* ATSUUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSUUpdater.m; sourceTree = "<group>"; };
 		7D992EBA100BEB3200DDA632 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 				8D202CF30486D31800D8A456 /* Cocoa.framework in Frameworks */,
 				8D202CF40486D31800D8A456 /* PreferencePanes.framework in Frameworks */,
 				7DEB002710156A84001F11ED /* CoreServices.framework in Frameworks */,
+				7D3C77BA1048CF5B00009126 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +133,7 @@
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7D3C77B91048CF5B00009126 /* Sparkle.framework */,
 				7DEB002610156A84001F11ED /* CoreServices.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
 				F506C035013D953901CA16C8 /* PreferencePanes.framework */,
@@ -304,10 +310,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -332,8 +341,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
+				GCC_ENABLE_OBJC_GC = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
