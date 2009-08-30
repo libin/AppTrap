@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		281852070C09DAC20020DDF3 /* ATNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 281852060C09DAC20020DDF3 /* ATNotifications.m */; };
-		281A7E5A0CFDC0ED00E5207C /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97319FDCFA39411CA2CEA /* MainMenu.nib */; };
 		281A7E610CFDC17100E5207C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 281A7E600CFDC17100E5207C /* Localizable.strings */; };
 		284B38AB0B78CF870008BFD5 /* ATArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284B38AA0B78CF870008BFD5 /* ATArrayController.m */; };
 		287A24B40B854E480077B852 /* ATTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A24B30B854E480077B852 /* ATTextFieldCell.m */; };
@@ -19,6 +18,7 @@
 		28A79E3B0B77D6A7005CCD1F /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A79E360B77D6A7005CCD1F /* UKMainThreadProxy.m */; };
 		28A79E830B77D91D005CCD1F /* ATApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A79E810B77D91D005CCD1F /* ATApplicationController.m */; };
 		7DA59D41102018C1002EBE1E /* ATVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA59D40102018C1002EBE1E /* ATVariables.m */; };
+		7DF8D312104AD53400A09FA1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DF8D311104AD53400A09FA1 /* MainMenu.xib */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -47,12 +47,12 @@
 		28A79E810B77D91D005CCD1F /* ATApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATApplicationController.m; sourceTree = "<group>"; };
 		28A79E820B77D91D005CCD1F /* ATApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATApplicationController.h; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		29B97319FDCFA39411CA2CEA /* MainMenu.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* AppTrap_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTrap_Prefix.pch; sourceTree = "<group>"; };
 		7DA59D3F102018C1002EBE1E /* ATVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVariables.h; sourceTree = "<group>"; };
 		7DA59D40102018C1002EBE1E /* ATVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATVariables.m; sourceTree = "<group>"; };
+		7DF8D311104AD53400A09FA1 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* AppTrap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppTrap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -164,7 +164,7 @@
 			children = (
 				8D1107310486CEB800E47090 /* Info.plist */,
 				281A7E600CFDC17100E5207C /* Localizable.strings */,
-				29B97319FDCFA39411CA2CEA /* MainMenu.nib */,
+				7DF8D311104AD53400A09FA1 /* MainMenu.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -242,8 +242,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				281A7E5A0CFDC0ED00E5207C /* MainMenu.nib in Resources */,
 				281A7E610CFDC17100E5207C /* Localizable.strings in Resources */,
+				7DF8D312104AD53400A09FA1 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
