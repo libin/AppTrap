@@ -197,7 +197,48 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array/>
+	<array>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>7DBB963D104DDCA000D5F6FE</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>Info.plist</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>7DBB963E104DDCA000D5F6FE</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>Info.plist</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>7DBB964E104DE13A00D5F6FE</string>
+						<key>history</key>
+						<array>
+							<string>7DBB9630104DDC9500D5F6FE</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {888, 750}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>455 60 888 791 0 0 1440 878 </string>
+			</dict>
+		</dict>
+	</array>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>1101</integer>
@@ -331,7 +372,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7D919D0F104D9B540059CAC4</string>
+										<string>7DBB964D104DE13A00D5F6FE</string>
 										<key>history</key>
 										<array>
 											<string>7D8E81C40FFACE7E0059EA10</string>
@@ -343,7 +384,7 @@
 											<string>7D5D9F2C1020A2F300A09DF7</string>
 											<string>7D5DA0FE10213C0B00A09DF7</string>
 											<string>7D5DA10010213C0B00A09DF7</string>
-											<string>7DB00BF5104CF3B20022E6C2</string>
+											<string>7D919D16104D9F370059CAC4</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -397,9 +438,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7D919CA7104D8E590059CAC4</string>
+				<string>7DBB963A104DDCA000D5F6FE</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7D919CA8104D8E590059CAC4</string>
+				<string>7DBB963B104DDCA000D5F6FE</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -482,8 +523,9 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>39</integer>
-									<integer>38</integer>
+									<integer>29</integer>
+									<integer>28</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -508,7 +550,7 @@
 							<real>587</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>100 188 626 687 0 0 1440 878 </string>
+						<string>70 146 626 687 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -527,7 +569,7 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7D919CA9104D8E590059CAC4</string>
+				<string>7DBB963C104DDCA000D5F6FE</string>
 				<string>11E0B1FE06471DED0097A5F4</string>
 			</array>
 			<key>ToolbarConfigUserDefaultsMinorVersion</key>
@@ -561,10 +603,11 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>7D0EFCB8100BD0D7005B4F39</string>
+		<string>7DBB963D104DDCA000D5F6FE</string>
 		<string>/Users/kumaranvijayan/Code/Mac/AppTrap/trunk/AppTrap/AppTrap.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>100 188 626 687 0 0 1440 878 </string>
+	<string>70 146 626 687 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -641,7 +684,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7D0EFCB8100BD0D7005B4F39</string>
-				<string>7D919CAA104D8E590059CAC4</string>
+				<string>7DBB9640104DDCA000D5F6FE</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
