@@ -25,15 +25,13 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1.1</string>
+	<string>1.1.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>27</string>
+	<string>28</string>
 	<key>NSMainNibFile</key>
 	<string>AppTrapPreferencePane</string>
-	<key>NSPrefPaneIconFile</key>
-	<string>AppTrapPreferencePanePref.tiff</string>
 	<key>NSPrefPaneIconLabel</key>
 	<string>AppTrap</string>
 	<key>NSPrincipalClass</key>

@@ -52,6 +52,9 @@
 		7D1051D5104A1FA900BAAF3F /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/AppTrapPreferencePane.xib; sourceTree = "<group>"; };
 		7D1051D7104A1FBC00BAAF3F /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/AppTrapPreferencePane.xib; sourceTree = "<group>"; };
 		7D3C77B91048CF5B00009126 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		7D5CCF6C104C0CC40026160F /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/AppTrapPreferencePane.xib; sourceTree = "<group>"; };
+		7D5CCF6D104C0CDC0026160F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = fr; path = "fr.lproj/Read Me.rtf"; sourceTree = "<group>"; };
+		7D5CCF6E104C0CFF0026160F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7D992EB3100BE7B100DDA632 /* ATSUUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSUUpdater.h; sourceTree = "<group>"; };
 		7D992EB4100BE7B100DDA632 /* ATSUUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSUUpdater.m; sourceTree = "<group>"; };
 		7D992EBA100BEB3200DDA632 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
@@ -273,6 +276,7 @@
 			children = (
 				28F272BB0C3A233500B1604F /* English */,
 				287EF8D60C4F8C30002DB92D /* nl */,
+				7D5CCF6D104C0CDC0026160F /* fr */,
 			);
 			name = "Read Me.rtf";
 			sourceTree = "<group>";
@@ -282,6 +286,7 @@
 			children = (
 				28A46DD10C43ED75007925EB /* English */,
 				287EF8B90C4F8A52002DB92D /* nl */,
+				7D5CCF6E104C0CFF0026160F /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 			children = (
 				7D1051D5104A1FA900BAAF3F /* English */,
 				7D1051D7104A1FBC00BAAF3F /* nl */,
+				7D5CCF6C104C0CC40026160F /* fr */,
 			);
 			name = AppTrapPreferencePane.xib;
 			sourceTree = "<group>";

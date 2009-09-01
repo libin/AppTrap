@@ -269,8 +269,10 @@ const int kWindowExpansionAmount = 164;
         
         NSLog(@"I just trapped the application %@!", currentFilename);
         
+		NSLog(@"whitelist before: %@", whitelist);
         // Add it to the whitelist
         [whitelist addObject:currentFilename];
+		NSLog(@"whitelist after: %@", whitelist);
         
         // Get the full path of the trapped application
         NSString *fullPath = [pathToTrash stringByAppendingPathComponent:currentFilename];
@@ -343,6 +345,7 @@ const int kWindowExpansionAmount = 164;
 // TODO: Seems like were leaking NSConcreteTask and NSConcretePipe here, needs to be investigated
 - (NSArray *)matchesForFilename:(NSString *)filename atPath:(NSString *)path
 {
+	NSLog(@"filename: %@", filename);
     if (!filename || !path)
         return [NSArray array];
     
@@ -385,10 +388,12 @@ const int kWindowExpansionAmount = 164;
     [self unregisterForWriteNotifications];
     
     id currentItem = nil;
-    
+    NSLog(@"listController before: %@ \n\n", [listController arrangedObjects]);
     while ([[listController arrangedObjects] count] > 0) {
         // Pick the first object in the list
         currentItem = [[listController arrangedObjects] objectAtIndex:0];
+		NSLog(@"currentItem: %@", currentItem);
+		NSLog(@"currentItem class: %@", [currentItem class]);
         
         // Check if this item should be removed
         if ([[currentItem valueForKey:@"shouldBeRemoved"] boolValue] == YES) {
@@ -396,7 +401,7 @@ const int kWindowExpansionAmount = 164;
             NSString *sourcePath = [currentItem valueForKey:@"fullPath"];
             NSString *source = [sourcePath stringByDeletingLastPathComponent];
             NSArray *files = [NSArray arrayWithObject:[sourcePath lastPathComponent]];
-            int tag;
+			NSInteger tag;
             [[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
                                                          source:source
                                                     destination:pathToTrash
@@ -411,6 +416,8 @@ const int kWindowExpansionAmount = 164;
         
         // Remove the item from the list
         [listController removeObjectAtArrangedObjectIndex:0];
+		
+		NSLog(@"listController after: %@ \n\n", [listController arrangedObjects]);
     }
     
     // Now, register for notifications again
