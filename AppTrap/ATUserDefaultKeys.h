@@ -22,3 +22,4 @@
 
 // Define all preferences keys, prefix them with "ATPreferences"
 extern NSString *ATPreferencesIsExpanded;
+extern NSString *ATLastUpdateCheck;

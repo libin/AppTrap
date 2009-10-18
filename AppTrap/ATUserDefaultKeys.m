@@ -21,3 +21,4 @@
 #import "ATUserDefaultKeys.h"
 
 NSString *ATPreferencesIsExpanded = @"isExpanded";
+NSString *ATLastUpdateCheck = @"lastUpdateCheck";

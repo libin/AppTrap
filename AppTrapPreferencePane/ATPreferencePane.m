@@ -84,7 +84,7 @@
 	[nc postNotificationName:ATApplicationSendVersionData 
 					  object:nil 
 					userInfo:nil 
-		  deliverImmediately:YES];	
+		  deliverImmediately:YES];
 }
 
 - (void)checkBackgroundProcessVersion:(NSNotification*)notification {
@@ -232,10 +232,25 @@
 
 - (IBAction)automaticallyCheckForUpdate:(id)sender {
 	[[ATSUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:[sender state]];
+
+	NSDictionary *dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:[sender state]] 
+													 forKey:ATShouldAutomaticallyCheckForUpdates];
+	
+	NSDistributedNotificationCenter *nc = [NSDistributedNotificationCenter defaultCenter];
+	[nc postNotificationName:ATApplicationAutomaticallyCheckForUpdates 
+					  object:nil 
+					userInfo:dict 
+		  deliverImmediately:YES];
 }
 
 - (IBAction)checkForUpdate:(id)sender {
 	[[ATSUUpdater sharedUpdater] checkForUpdates:sender];
+	
+	NSDistributedNotificationCenter *nc = [NSDistributedNotificationCenter defaultCenter];
+	[nc postNotificationName:ATApplicationCheckForUpdate 
+					  object:nil 
+					userInfo:nil 
+		  deliverImmediately:YES];
 }
 
 #pragma mark -

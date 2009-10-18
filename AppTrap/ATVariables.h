@@ -22,3 +22,4 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *ATBackgroundProcessVersion;
+extern NSString *ATShouldAutomaticallyCheckForUpdates;

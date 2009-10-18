@@ -32,6 +32,9 @@
     NSString *pathToTrash;
     NSSet *applicationsPaths;
     NSSet *libraryPaths;
+	BOOL shouldAutomaticallyCheckForUpdates;
+	NSTimer *updateTimer;
+	NSTimeInterval updateTimerTimeInterval;
     
     IBOutlet NSTextField *dialogueText1;
     IBOutlet NSTextField *dialogueText2;

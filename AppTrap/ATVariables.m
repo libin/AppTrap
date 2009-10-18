@@ -22,3 +22,4 @@
 #import "ATVariables.h"
 
 NSString *ATBackgroundProcessVersion = @"ATBackgroundProcessVersion";
+NSString *ATShouldAutomaticallyCheckForUpdates = @"ATShouldAutomaticallyCheckForUpdates";

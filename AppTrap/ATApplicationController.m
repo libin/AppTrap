@@ -82,6 +82,9 @@ const int kWindowExpansionAmount = 164;
         
         // Register for changes to the trash
         [self registerForWriteNotifications];
+		
+		//Set up the update timer for automatic updates
+		updateTimerTimeInterval = 5;
         
         // Setup default preferences
         NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -102,7 +105,13 @@ const int kWindowExpansionAmount = 164;
 				   name:ATApplicationSendVersionData 
 				 object:nil
 	 suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
-    }
+		
+		[nc addObserver:self
+			   selector:@selector(automaticallyCheckForUpdates:)
+				   name:ATApplicationAutomaticallyCheckForUpdates
+				 object:nil
+	 suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
+	}
     
     return self;
 }
@@ -432,6 +441,45 @@ const int kWindowExpansionAmount = 164;
     // Close the window
     [NSApp stopModal];
     [mainWindow orderOut:self];
+}
+
+#pragma mark -
+#pragma mark Update Checking
+
+//Called via the distributed notification system, when the Automatically Check for Updates
+//checkbox is clicked
+- (void)automaticallyCheckForUpdates:(NSNotification*)notification {
+	NSLog(@"automaticallyCheckForUpdates:");
+	NSDictionary *userInfo = [notification userInfo];
+	shouldAutomaticallyCheckForUpdates = [[userInfo objectForKey:ATShouldAutomaticallyCheckForUpdates] boolValue];
+	NSLog(@"shouldAutomaticallyCheckForUpdates: %d", shouldAutomaticallyCheckForUpdates);
+	
+	if (shouldAutomaticallyCheckForUpdates) {
+//		[[NSRunLoop mainRunLoop] addTimer:updateTimer forMode:NSDefaultRunLoopMode];
+		updateTimer = [NSTimer scheduledTimerWithTimeInterval:updateTimerTimeInterval
+													   target:self
+													 selector:@selector(checkForUpdate)
+													 userInfo:nil
+													  repeats:NO];
+	} else {
+		[updateTimer invalidate];
+	}
+
+}
+
+- (void)checkForUpdate {
+	NSLog(@"checkForUpdate");
+	NSDate *date = [NSDate date];
+	NSLog(@"%@", [date description]);
+	[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:ATLastUpdateCheck];
+
+	//Actual update checking code goes here...
+	
+	updateTimer = [NSTimer scheduledTimerWithTimeInterval:updateTimerTimeInterval
+												   target:self
+												 selector:@selector(checkForUpdate)
+												 userInfo:nil
+												  repeats:NO];
 }
 
 #pragma mark -
