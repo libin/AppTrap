@@ -35,7 +35,7 @@
 	NSLog(@"appPath: %@", appPath);
 	
 	[automaticallyCheckForUpdate setState:[[ATSUUpdater sharedUpdater] automaticallyChecksForUpdates]];
-
+		
     // Restart AppTrap in case the user just updated to a new version
     // TODO: Check AppTrap's version against the prefpane version and only restart if they differ
     // TODO: Leave this off for now, something goes haywire on startup
@@ -232,7 +232,7 @@
 
 - (IBAction)automaticallyCheckForUpdate:(id)sender {
 	[[ATSUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:[sender state]];
-
+	
 	NSDictionary *dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:[sender state]] 
 													 forKey:ATShouldAutomaticallyCheckForUpdates];
 	

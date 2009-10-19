@@ -21,4 +21,6 @@
 #import "ATUserDefaultKeys.h"
 
 NSString *ATPreferencesIsExpanded = @"isExpanded";
-NSString *ATLastUpdateCheck = @"lastUpdateCheck";
+NSString *ATPreferencesLastUpdateCheck = @"lastUpdateCheck";
+
+NSString *ATPrefPanePrefsAutomaticallyChecksForUpdates = @"automaticallyChecksForUpdates";

@@ -84,8 +84,51 @@ const int kWindowExpansionAmount = 164;
         [self registerForWriteNotifications];
 		
 		//Set up the update timer for automatic updates
-		updateTimerTimeInterval = 5;
-        
+		updateTimerTimeInterval = 86400;
+
+		NSString *beginning;
+		NSArray *temp;
+		NSString *prefPanePlist = [[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent];
+		prefPanePlist = [[prefPanePlist stringByDeletingLastPathComponent] stringByDeletingLastPathComponent];
+		NSLog(@"prefPanePlist: %@", prefPanePlist);
+		prefPanePlist = [[NSBundle bundleWithPath:prefPanePlist] bundleIdentifier];
+		NSLog(@"prefPanePlist bundleIdentifier: %@", prefPanePlist);
+		prefPanePlist = [prefPanePlist stringByAppendingPathExtension:@"plist"];
+		NSLog(@"prefPanePlist plist: %@", prefPanePlist);
+		e = [libraryPaths objectEnumerator];
+		while (currentObject = [e nextObject]) {
+//			currentObject = (NSString*)currentObject;
+			//Use the User's preferences directory
+			if (![currentObject isEqualToString:@"/Library/Preferences"] && [[currentObject lastPathComponent] isEqualToString:@"Preferences"]) {
+				NSLog(@"currentObject: %@", currentObject);
+				beginning = (NSString*)currentObject;
+				temp = [[NSFileManager defaultManager] directoryContentsAtPath:currentObject];
+				continue;
+			}
+		}
+		
+		NSString *filePath;
+		NSDictionary *prefPanePreferences;
+		id currentObject2;
+		e = [temp objectEnumerator];
+		while (currentObject2 = [e nextObject]) {
+			NSLog(@"currentObject2: %@", currentObject2);
+			if ([currentObject2 isEqualToString:prefPanePlist]) {
+				NSLog(@"beginning: %@", beginning);
+				filePath = [beginning stringByAppendingPathComponent:currentObject2];
+				NSLog(@"filePath: %@", filePath);
+				prefPanePreferences = [NSDictionary dictionaryWithContentsOfFile:filePath];
+			}
+		}
+		
+		NSLog(@"prefPanePreferences: %@", prefPanePreferences);
+		
+		NSLog(@"enable automatic checks: %d", [[prefPanePreferences objectForKey:@"SUEnableAutomaticChecks"] boolValue]);
+		
+		if ([[prefPanePreferences objectForKey:@"SUEnableAutomaticChecks"] boolValue]) {
+			[self startAutomaticallyCheckingForUpdates];
+		}
+		
         // Setup default preferences
         NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithBool:NO], ATPreferencesIsExpanded,
@@ -446,15 +489,23 @@ const int kWindowExpansionAmount = 164;
 #pragma mark -
 #pragma mark Update Checking
 
+- (void)startAutomaticallyCheckingForUpdates {
+	NSLog(@"startAutomaticallyCheckingForUpdates");
+	updateTimer = [NSTimer scheduledTimerWithTimeInterval:updateTimerTimeInterval
+												   target:self
+												 selector:@selector(checkForUpdate)
+												 userInfo:nil
+												  repeats:NO];
+}
+
 //Called via the distributed notification system, when the Automatically Check for Updates
 //checkbox is clicked
 - (void)automaticallyCheckForUpdates:(NSNotification*)notification {
 	NSLog(@"automaticallyCheckForUpdates:");
 	NSDictionary *userInfo = [notification userInfo];
-	shouldAutomaticallyCheckForUpdates = [[userInfo objectForKey:ATShouldAutomaticallyCheckForUpdates] boolValue];
-	NSLog(@"shouldAutomaticallyCheckForUpdates: %d", shouldAutomaticallyCheckForUpdates);
+	NSLog(@"shouldAutomaticallyCheckForUpdates: %d", [[userInfo objectForKey:ATShouldAutomaticallyCheckForUpdates] boolValue]);
 	
-	if (shouldAutomaticallyCheckForUpdates) {
+	if ([[userInfo objectForKey:ATShouldAutomaticallyCheckForUpdates] boolValue]) {
 //		[[NSRunLoop mainRunLoop] addTimer:updateTimer forMode:NSDefaultRunLoopMode];
 		updateTimer = [NSTimer scheduledTimerWithTimeInterval:updateTimerTimeInterval
 													   target:self
@@ -464,14 +515,13 @@ const int kWindowExpansionAmount = 164;
 	} else {
 		[updateTimer invalidate];
 	}
-
 }
 
 - (void)checkForUpdate {
 	NSLog(@"checkForUpdate");
 	NSDate *date = [NSDate date];
 	NSLog(@"%@", [date description]);
-	[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:ATLastUpdateCheck];
+	[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:ATPreferencesLastUpdateCheck];
 
 	//Actual update checking code goes here...
 	

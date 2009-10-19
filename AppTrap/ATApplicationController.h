@@ -32,7 +32,6 @@
     NSString *pathToTrash;
     NSSet *applicationsPaths;
     NSSet *libraryPaths;
-	BOOL shouldAutomaticallyCheckForUpdates;
 	NSTimer *updateTimer;
 	NSTimeInterval updateTimerTimeInterval;
     
@@ -53,6 +52,7 @@
 - (IBAction)moveCurrentItemsToTrash:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (void)terminateAppTrap:(NSNotification *)aNotification;
+- (void)startAutomaticallyCheckingForUpdates;
 
 #pragma mark -
 #pragma mark Window resizing
