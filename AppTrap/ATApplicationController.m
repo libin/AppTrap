@@ -84,23 +84,19 @@ const int kWindowExpansionAmount = 164;
         [self registerForWriteNotifications];
 		
 		//Set up the update timer for automatic updates
-		updateTimerTimeInterval = 86400;
+		updateTimerTimeInterval = 5;
 
 		NSString *beginning;
 		NSArray *temp;
 		NSString *prefPanePlist = [[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent];
 		prefPanePlist = [[prefPanePlist stringByDeletingLastPathComponent] stringByDeletingLastPathComponent];
-		NSLog(@"prefPanePlist: %@", prefPanePlist);
 		prefPanePlist = [[NSBundle bundleWithPath:prefPanePlist] bundleIdentifier];
-		NSLog(@"prefPanePlist bundleIdentifier: %@", prefPanePlist);
 		prefPanePlist = [prefPanePlist stringByAppendingPathExtension:@"plist"];
-		NSLog(@"prefPanePlist plist: %@", prefPanePlist);
 		e = [libraryPaths objectEnumerator];
+		//Get from the libraryPaths the user's Preferences directory
 		while (currentObject = [e nextObject]) {
-//			currentObject = (NSString*)currentObject;
 			//Use the User's preferences directory
 			if (![currentObject isEqualToString:@"/Library/Preferences"] && [[currentObject lastPathComponent] isEqualToString:@"Preferences"]) {
-				NSLog(@"currentObject: %@", currentObject);
 				beginning = (NSString*)currentObject;
 				temp = [[NSFileManager defaultManager] directoryContentsAtPath:currentObject];
 				continue;
@@ -111,20 +107,17 @@ const int kWindowExpansionAmount = 164;
 		NSDictionary *prefPanePreferences;
 		id currentObject2;
 		e = [temp objectEnumerator];
+		//Search through the User's Preferences directory for the
+		//AppTrap prefpane's plist and load it into an NSDictionary object
 		while (currentObject2 = [e nextObject]) {
-			NSLog(@"currentObject2: %@", currentObject2);
 			if ([currentObject2 isEqualToString:prefPanePlist]) {
-				NSLog(@"beginning: %@", beginning);
 				filePath = [beginning stringByAppendingPathComponent:currentObject2];
-				NSLog(@"filePath: %@", filePath);
 				prefPanePreferences = [NSDictionary dictionaryWithContentsOfFile:filePath];
 			}
 		}
 		
-		NSLog(@"prefPanePreferences: %@", prefPanePreferences);
-		
-		NSLog(@"enable automatic checks: %d", [[prefPanePreferences objectForKey:@"SUEnableAutomaticChecks"] boolValue]);
-		
+		//start automatically checking for updates based on the prefpane preference's
+		//value for the SUEnableAutomaticChecks key
 		if ([[prefPanePreferences objectForKey:@"SUEnableAutomaticChecks"] boolValue]) {
 			[self startAutomaticallyCheckingForUpdates];
 		}
@@ -524,6 +517,37 @@ const int kWindowExpansionAmount = 164;
 	[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:ATPreferencesLastUpdateCheck];
 
 	//Actual update checking code goes here...
+	NSLog(@"Beginning update check...");
+	
+	NSDictionary *dict = [[NSBundle mainBundle] infoDictionary];
+	NSString *path = [dict objectForKey:@"AppTrapAutomaticUpdateCheckURL"];
+	NSURL *fileURL = [NSURL URLWithString:path];
+	NSXMLDocument *xmlDocument = [[NSXMLDocument alloc] initWithContentsOfURL:fileURL 
+																	  options:NSXMLDocumentTidyXML
+																		error:nil];
+		
+	NSXMLElement *root = [xmlDocument rootElement];
+	NSXMLNode *node = root;
+	while (node = [node nextNode]) {
+		if ([[node name] isEqualToString:@"sparkle:releaseNotesLink"]) {
+			NSLog(@"sparkle:releaseNotesLink");
+			NSLog(@"%@", [node stringValue]);
+			
+			NSURL *url = [NSURL URLWithString:[node stringValue]];
+			NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+			//Load the page in the main frame of the web view
+			NSLog(@"urlRequest: %@", [urlRequest description]);
+			
+			static SInt32 systemVersion;
+			Gestalt(gestaltSystemVersion, &systemVersion);
+			
+			if (systemVersion >= 0x1061) {
+				NSLog(@"OK");
+			}
+		}
+	}
+	
+	NSLog(@"Update check done");
 	
 	updateTimer = [NSTimer scheduledTimerWithTimeInterval:updateTimerTimeInterval
 												   target:self
