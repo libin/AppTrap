@@ -345,7 +345,6 @@ static UKKQueue * gUKKQueueSharedQueueSingleton = nil;
     
     while( keepThreadRunning )
     {
-		NSAutoreleasePool*  pool = [[NSAutoreleasePool alloc] init];
 		
 		NS_DURING
 			n = kevent( queueFD, NULL, 0, &ev, 1, &timeout );
@@ -355,6 +354,8 @@ static UKKQueue * gUKKQueueSharedQueueSingleton = nil;
 				{
 					if( ev.fflags )
 					{
+						NSAutoreleasePool*  pool = [[NSAutoreleasePool alloc] init];
+
 						NSString*		fpath = [[(NSString *)ev.udata retain] autorelease];    // In case one of the notified folks removes the path.
 						//NSLog(@"UKKQueue: Detected file change: %@", fpath);
 						[[NSWorkspace sharedWorkspace] noteFileSystemChanged: fpath];
@@ -375,6 +376,8 @@ static UKKQueue * gUKKQueueSharedQueueSingleton = nil;
 							[self postNotification: UKFileWatcherLinkCountChangeNotification forFile: fpath];
 						if( (ev.fflags & NOTE_REVOKE) == NOTE_REVOKE )
 							[self postNotification: UKFileWatcherAccessRevocationNotification forFile: fpath];
+						
+						[pool release];
 					}
 				}
 			}
@@ -382,7 +385,6 @@ static UKKQueue * gUKKQueueSharedQueueSingleton = nil;
 			NSLog(@"Error in UKKQueue watcherThread: %@",localException);
 		NS_ENDHANDLER
 		
-		[pool release];
     }
     
 	// Close our kqueue's file descriptor:
