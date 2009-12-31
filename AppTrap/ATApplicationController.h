@@ -21,6 +21,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class ATArrayController;
+@class ATUpdateChecker;
 
 @interface ATApplicationController : NSObject
 {
@@ -33,7 +34,6 @@
     NSSet *applicationsPaths;
     NSSet *libraryPaths;
 	NSTimer *updateTimer;
-	NSTimeInterval updateTimerTimeInterval;
     
     IBOutlet NSTextField *dialogueText1;
     IBOutlet NSTextField *dialogueText2;
@@ -41,6 +41,7 @@
     IBOutlet NSButton *moveButton;
     IBOutlet NSButton *disclosureTriangle;
     IBOutlet NSScrollView *filelistView;
+	IBOutlet ATUpdateChecker *atUpdateChecker;
 }
 
 - (void)registerForWriteNotifications;
