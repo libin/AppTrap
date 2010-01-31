@@ -25,3 +25,4 @@ NSString *ATApplicationTerminatedNotification = @"ATApplicationTerminatedNotific
 NSString *ATApplicationShouldTerminateNotification = @"ATApplicationShouldTerminateNotification";
 NSString *ATApplicationSendVersionData = @"ATApplicationSendVersionData";
 NSString *ATApplicationGetVersionData = @"ATApplicationGetVersionData";
+NSString *ATApplicationUserWhitelistChanged = @"ATApplicationUserWhitelistChanged";

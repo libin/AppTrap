@@ -35,6 +35,7 @@
     
     IBOutlet NSTextField *dialogueText1;
     IBOutlet NSTextField *dialogueText2;
+	IBOutlet NSTextField *dialogueText3;
     IBOutlet NSButton *leaveButton;
     IBOutlet NSButton *moveButton;
     IBOutlet NSButton *disclosureTriangle;
@@ -50,7 +51,7 @@
 - (IBAction)moveCurrentItemsToTrash:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (void)terminateAppTrap:(NSNotification *)aNotification;
-
+- (void)getUserWhitelist:(NSNotification*)aNotification;
 #pragma mark -
 #pragma mark Window resizing
 

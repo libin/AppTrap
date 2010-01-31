@@ -24,6 +24,7 @@
 @interface ATPreferencePane : NSPreferencePane 
 {
     NSString *appPath;
+	NSMutableArray *whitelistArray;
     
     IBOutlet NSTextField *statusText;
     IBOutlet NSButton *startStopButton;
@@ -34,6 +35,8 @@
 	IBOutlet NSTextField *restartingAppTrapTextField;
 	IBOutlet NSWindow *window;
 	IBOutlet NSWindow *appTrapRestartWindow;
+	IBOutlet NSWindow *whitelistWindow;
+	IBOutlet NSTableView *whitelistTableView;
 }
 
 - (void)updateStatus;
@@ -52,5 +55,8 @@
 - (IBAction)startStopAppTrap:(id)sender;
 - (IBAction)startOnLogin:(id)sender;
 - (IBAction)visitWebsite:(id)sender;
-
+- (IBAction)openWhitelist:(id)sender;
+- (IBAction)closeSheet:(id)sender;
+- (IBAction)addApplication:(id)sender;
+- (IBAction)removeApplication:(id)sender;
 @end

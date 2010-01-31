@@ -102,6 +102,12 @@ const int kWindowExpansionAmount = 164;
 				   name:ATApplicationSendVersionData 
 				 object:nil
 	 suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
+		
+		[nc addObserver:self
+			   selector:@selector(getUserWhitelist:)
+				   name:ATApplicationUserWhitelistChanged 
+				 object:nil
+	 suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
     }
     
     return self;
@@ -115,6 +121,7 @@ const int kWindowExpansionAmount = 164;
     // Fill the text and button placeholders with localized text
     [dialogueText1 setStringValue:NSLocalizedString(@"You are moving an application to the trash, do you want to move its associated system files too?", @"")];
     [dialogueText2 setStringValue:NSLocalizedString(@"No files will be deleted until you empty the trash.", @"")];
+	[dialogueText3 setStringValue:NSLocalizedString(@"WARNING: The application may only be updating itself.", @"")];
     [leaveButton setTitle:NSLocalizedString(@"Leave files", @"")];
     [moveButton setTitle:NSLocalizedString(@"Move files", @"")];
     
@@ -134,13 +141,21 @@ const int kWindowExpansionAmount = 164;
     newFrame.size = [[dialogueText2 cell] cellSizeForBounds:newFrame];
     newFrame.origin.y = [dialogueText1 frame].origin.y - newFrame.size.height - 8;
     [dialogueText2 setFrame:newFrame];
+	
+	// Third text field
+	newFrame = [dialogueText3 frame];
+	newFrame.size.height = 10000.0; // an arbitrary large number
+	newFrame.size = [[dialogueText3 cell] cellSizeForBounds:newFrame];
+	newFrame.origin.y = [dialogueText1 frame].origin.y - newFrame.size.height - 26;
+	[dialogueText3 setFrame:newFrame];
     
     // Default button
     [moveButton sizeToFit];
+	[dialogueText3 setTextColor:[NSColor redColor]];
     newFrame = [moveButton frame];
     newFrame.size.width += 12; // To compensate for the somewhat broken sizeToFit method
     newFrame.origin.x = [mainWindow frame].size.width - newFrame.size.width - 14;
-    newFrame.origin.y = [dialogueText2 frame].origin.y - newFrame.size.height - 8;
+    newFrame.origin.y = [dialogueText2 frame].origin.y - newFrame.size.height - 24;
     [moveButton setFrame:newFrame];
     
     // Cancel button
@@ -153,7 +168,7 @@ const int kWindowExpansionAmount = 164;
     
     // Disclosure triangle
     newFrame = [disclosureTriangle frame];
-    newFrame.origin.y = [dialogueText2 frame].origin.y - newFrame.size.height - 13;
+    newFrame.origin.y = [dialogueText2 frame].origin.y - newFrame.size.height - 25;
     [disclosureTriangle setFrame:newFrame];
     
     // File list
@@ -163,7 +178,7 @@ const int kWindowExpansionAmount = 164;
     
     // And finally, the window itself
     newFrame = [mainWindow frame];
-    newFrame.size.height = 20 + [dialogueText1 frame].size.height + 8 + [dialogueText2 frame].size.height + 8 + [moveButton frame].size.height + 20 + 14;
+    newFrame.size.height = 30 + [dialogueText1 frame].size.height + 8 + [dialogueText2 frame].size.height + 8 + [moveButton frame].size.height + 20 + 14;
     if (isExpanded)
         newFrame.size.height += [filelistView frame].size.height + 20;
     [mainWindow setFrame:newFrame display:NO];
@@ -244,12 +259,30 @@ const int kWindowExpansionAmount = 164;
 {
     NSEnumerator *e = [[self applicationsInTrash] objectEnumerator];
     NSString *currentFilename = nil;
-    
     while ((currentFilename = [e nextObject])) {
         // Is it on the whitelist?
         if ([whitelist containsObject:currentFilename])
             continue;
         
+		NSString *appNameSansExt = [currentFilename stringByDeletingPathExtension];
+		NSLog(@"app name /w ext: %@", appNameSansExt);
+		BOOL doBreak = NO;
+		for (NSString *i in whitelist) {
+			NSArray *c = [appNameSansExt componentsSeparatedByString:@" "];
+			NSLog(@"c: %@", c);
+			if ([c containsObject:[i stringByDeletingPathExtension]]) {
+				doBreak = YES;
+				continue;
+			} else if ([[i lastPathComponent] isEqualToString:[currentFilename lastPathComponent]]) {
+				doBreak = YES;
+				continue;
+			}
+		}
+				
+		if (doBreak) {
+			continue;
+		}
+		
         // If it's in the applications folder, it was probably auto-updated by Sparkle
         // XXX: Currently only works for applications in root (not apps in folders), we could of course recurse with an NSDirectoryEnumerator but that would be _reeeeally_ slow since this method is called very often
         NSFileManager *manager = [NSFileManager defaultManager];
@@ -269,10 +302,8 @@ const int kWindowExpansionAmount = 164;
         
         NSLog(@"I just trapped the application %@!", currentFilename);
         
-		NSLog(@"whitelist before: %@", whitelist);
         // Add it to the whitelist
         [whitelist addObject:currentFilename];
-		NSLog(@"whitelist after: %@", whitelist);
         
         // Get the full path of the trapped application
         NSString *fullPath = [pathToTrash stringByAppendingPathComponent:currentFilename];
@@ -466,6 +497,16 @@ const int kWindowExpansionAmount = 164;
         else
             [self extendMainWindowBy:-kWindowExpansionAmount];
     }
+}
+
+- (void)getUserWhitelist:(NSNotification*)aNotification {
+	NSLog(@"getUserWhitelist:");
+	NSDictionary *userWhitelistDict = [aNotification userInfo];
+	NSArray *userWhitelistArray = [userWhitelistDict objectForKey:ATWhitelist];
+	for (NSString *i in userWhitelistArray) {
+		[whitelist addObject:[i lastPathComponent]];
+	}
+	NSLog(@"whitelist: %@", whitelist);
 }
 
 #pragma mark -

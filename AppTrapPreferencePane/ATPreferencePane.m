@@ -60,6 +60,14 @@
         [[aboutView textStorage] replaceCharactersInRange:versionSymbolRange withString:[[self bundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
 	}
 
+	//Initialize the array of whitelist items
+	NSArray *whitelist = [[NSUserDefaults standardUserDefaults] arrayForKey:ATWhitelist];
+	if (whitelist) {
+		whitelistArray = [NSMutableArray arrayWithArray:whitelist];
+	} else {
+		whitelistArray = [NSMutableArray array];
+	}
+	
     // Register for notifications from AppTrap
     NSDistributedNotificationCenter *nc = [NSDistributedNotificationCenter defaultCenter];
     
@@ -87,12 +95,7 @@
 		  deliverImmediately:YES];	
 }
 
-- (void)checkBackgroundProcessVersion:(NSNotification*)notification {
-	NSLog(@"checkBackgroundProcessVersion");
-	NSLog(@"notification: %@", [notification description]);
-	NSLog(@"notification userInfo class: %@", [[notification userInfo] className]);
-	NSLog(@"notification userInfo: %@", [[notification userInfo] description]);
-	
+- (void)checkBackgroundProcessVersion:(NSNotification*)notification {	
 	NSString *backgroundProcessVersion = [[notification userInfo] objectForKey:ATBackgroundProcessVersion];
 	int backgroundProcessVersionInt = [backgroundProcessVersion intValue];
 	NSString *prefpaneVersion = [[self bundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
@@ -173,6 +176,12 @@
     [self performSelector:@selector(updateStatus)
 			   withObject:nil
 			   afterDelay:5.0];
+	
+	NSDictionary *whitelist = [NSDictionary dictionaryWithObject:whitelistArray forKey:ATWhitelist];
+	[[NSDistributedNotificationCenter defaultCenter] postNotificationName:ATApplicationUserWhitelistChanged
+																   object:nil
+																 userInfo:whitelist
+													   deliverImmediately:YES];
 }
 
 - (void)launchAppTrap
@@ -316,6 +325,109 @@
 {
     NSURL *url = [NSURL URLWithString:@"http://onnati.net/apptrap/"];
     [[NSWorkspace sharedWorkspace] openURL:url];
+}
+
+- (IBAction)openWhitelist:(id)sender {
+	NSLog(@"openWhiteList:");
+	[NSApp beginSheet:whitelistWindow
+	   modalForWindow:[startStopButton window]
+		modalDelegate:self
+	   didEndSelector:@selector(whitelistSheetDidEnd:returnCode:contextInfo:)
+		  contextInfo:nil];
+}
+
+- (IBAction)closeSheet:(id)sender {
+	NSLog(@"closeSheet:");
+	[NSApp endSheet:whitelistWindow];
+}
+
+- (void)whitelistSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+	[whitelistWindow orderOut:self];
+}
+
+- (IBAction)addApplication:(id)sender {
+	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+	NSArray *fileTypes = [NSArray arrayWithObject:@"app"];
+	[openPanel setCanChooseFiles:YES];
+	[openPanel setCanChooseDirectories:NO];
+	[openPanel setAllowsMultipleSelection:NO];
+	[openPanel setResolvesAliases:YES];
+	[openPanel beginForDirectory:@"/Applications/"
+							file:nil
+						   types:fileTypes
+				modelessDelegate:self
+				  didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) 
+					 contextInfo:nil];
+}
+
+- (void)openPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode  contextInfo:(void  *)contextInfo {
+	NSLog(@"openPanelDidEnd:returnCode:contextInfo:");
+	NSLog(@"%@", [panel filenames]);
+	NSString *filename = [[panel filenames] objectAtIndex:0];
+	// Check to see that the user selected an item and that it's not already in the whitelist
+	if ([[panel filenames] count] > 0 && ![whitelistArray containsObject:filename]) {
+		NSLog(@"appsInsideApp: %@", [self appsInsideApp:filename]);
+		[whitelistArray addObjectsFromArray:[self appsInsideApp:filename]];
+		[[NSUserDefaults standardUserDefaults] setObject:whitelistArray forKey:ATWhitelist];
+		
+		NSDictionary *whitelistDict = [NSDictionary dictionaryWithObject:[panel filenames] forKey:ATWhitelist];
+		[[NSDistributedNotificationCenter defaultCenter] postNotificationName:ATApplicationUserWhitelistChanged
+																	   object:nil
+																	 userInfo:whitelistDict
+														   deliverImmediately:YES];
+		[whitelistTableView reloadData];
+	}
+}
+
+- (IBAction)removeApplication:(id)sender {
+	NSLog(@"removeApplication:");
+	if ([whitelistTableView selectedRow] > -1) {
+		[whitelistArray removeObjectAtIndex:[whitelistTableView selectedRow]];
+		[[NSUserDefaults standardUserDefaults] setObject:whitelistArray forKey:ATWhitelist];
+		[[NSDistributedNotificationCenter defaultCenter] postNotificationName:ATApplicationUserWhitelistChanged
+																	   object:nil
+																	 userInfo:nil
+														   deliverImmediately:YES];
+		[whitelistTableView reloadData];
+	}
+}
+
+- (NSArray*)appsInsideApp:(NSString*)app {
+	NSString *command = [NSString stringWithFormat:@"find '%@' -name '*.app'", app];
+    
+    NSTask *task = [[NSTask alloc] init];
+    [task setLaunchPath: @"/bin/sh"];
+    [task setArguments: [NSArray arrayWithObjects:@"-c", command, nil]];
+    
+    NSPipe *pipe  = [NSPipe pipe];
+    [task setStandardOutput: pipe];
+    NSFileHandle *file = [pipe fileHandleForReading];
+    
+    [task launch];
+    
+    NSData *data = [file readDataToEndOfFile];
+    NSString *string = [[NSString alloc] initWithData:data
+                                             encoding:NSUTF8StringEncoding];
+    NSArray *matches = [string componentsSeparatedByString:@"\n"];
+    
+    [task waitUntilExit];
+    [task release];
+    [string release];
+    
+    return matches;
+	
+}
+
+#pragma mark -
+#pragma mark table view stuff
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
+	return [whitelistArray count];
+}
+
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+	NSString *fileName = [whitelistArray objectAtIndex:rowIndex];
+	return [fileName lastPathComponent];
 }
 
 @end

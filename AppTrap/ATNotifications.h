@@ -25,3 +25,4 @@ extern NSString *ATApplicationTerminatedNotification;
 extern NSString *ATApplicationShouldTerminateNotification;
 extern NSString *ATApplicationSendVersionData;
 extern NSString *ATApplicationGetVersionData;
+extern NSString *ATApplicationUserWhitelistChanged;
