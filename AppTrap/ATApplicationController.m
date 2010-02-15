@@ -26,7 +26,7 @@
 #import "ATUserDefaultKeys.h"
 
 // Amount to expand the window to show the filelist
-const int kWindowExpansionAmount = 164;
+const int kWindowExpansionAmount = 174;
 
 @implementation ATApplicationController
 
@@ -115,6 +115,7 @@ const int kWindowExpansionAmount = 164;
     // Fill the text and button placeholders with localized text
     [dialogueText1 setStringValue:NSLocalizedString(@"You are moving an application to the trash, do you want to move its associated system files too?", @"")];
     [dialogueText2 setStringValue:NSLocalizedString(@"No files will be deleted until you empty the trash.", @"")];
+	[dialogueText3 setStringValue:NSLocalizedString(@"WARNING: The application may only be updating itself.", @"")];
     [leaveButton setTitle:NSLocalizedString(@"Leave files", @"")];
     [moveButton setTitle:NSLocalizedString(@"Move files", @"")];
     
@@ -134,13 +135,21 @@ const int kWindowExpansionAmount = 164;
     newFrame.size = [[dialogueText2 cell] cellSizeForBounds:newFrame];
     newFrame.origin.y = [dialogueText1 frame].origin.y - newFrame.size.height - 8;
     [dialogueText2 setFrame:newFrame];
+	
+	// Third text field
+	newFrame = [dialogueText3 frame];
+	newFrame.size.height = 10000.0; // an arbitrary large number
+	newFrame.size = [[dialogueText3 cell] cellSizeForBounds:newFrame];
+	newFrame.origin.y = [dialogueText1 frame].origin.y - newFrame.size.height - 26;
+	[dialogueText3 setFrame:newFrame];
     
     // Default button
     [moveButton sizeToFit];
+	[dialogueText3 setTextColor:[NSColor redColor]];
     newFrame = [moveButton frame];
     newFrame.size.width += 12; // To compensate for the somewhat broken sizeToFit method
     newFrame.origin.x = [mainWindow frame].size.width - newFrame.size.width - 14;
-    newFrame.origin.y = [dialogueText2 frame].origin.y - newFrame.size.height - 8;
+    newFrame.origin.y = [dialogueText2 frame].origin.y - newFrame.size.height - 24;
     [moveButton setFrame:newFrame];
     
     // Cancel button
@@ -153,7 +162,7 @@ const int kWindowExpansionAmount = 164;
     
     // Disclosure triangle
     newFrame = [disclosureTriangle frame];
-    newFrame.origin.y = [dialogueText2 frame].origin.y - newFrame.size.height - 13;
+    newFrame.origin.y = [dialogueText2 frame].origin.y - newFrame.size.height - 25;
     [disclosureTriangle setFrame:newFrame];
     
     // File list
@@ -163,7 +172,7 @@ const int kWindowExpansionAmount = 164;
     
     // And finally, the window itself
     newFrame = [mainWindow frame];
-    newFrame.size.height = 20 + [dialogueText1 frame].size.height + 8 + [dialogueText2 frame].size.height + 8 + [moveButton frame].size.height + 20 + 14;
+    newFrame.size.height = 30 + [dialogueText1 frame].size.height + 8 + [dialogueText2 frame].size.height + 8 + [moveButton frame].size.height + 20 + 14;
     if (isExpanded)
         newFrame.size.height += [filelistView frame].size.height + 20;
     [mainWindow setFrame:newFrame display:NO];

@@ -51,6 +51,9 @@
 		32DBCFA20370C41700C91783 /* AppTrapPreferencePane_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTrapPreferencePane_Prefix.pch; sourceTree = "<group>"; };
 		7D1051D5104A1FA900BAAF3F /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/AppTrapPreferencePane.xib; sourceTree = "<group>"; };
 		7D1051D7104A1FBC00BAAF3F /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/AppTrapPreferencePane.xib; sourceTree = "<group>"; };
+		7D18B1541128BC94003C260F /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7D18B1551128BCA8003C260F /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = pt; path = "pt.lproj/Read Me.rtf"; sourceTree = "<group>"; };
+		7D18B1561128BCB9003C260F /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/AppTrapPreferencePane.xib; sourceTree = "<group>"; };
 		7D3C77B91048CF5B00009126 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		7D5CCF6C104C0CC40026160F /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/AppTrapPreferencePane.xib; sourceTree = "<group>"; };
 		7D5CCF6D104C0CDC0026160F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = fr; path = "fr.lproj/Read Me.rtf"; sourceTree = "<group>"; };
@@ -220,6 +223,7 @@
 				es,
 				zh_TW,
 				ja,
+				pt,
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* AppTrapPreferencePane */;
 			projectDirPath = "";
@@ -277,6 +281,7 @@
 				28F272BB0C3A233500B1604F /* English */,
 				287EF8D60C4F8C30002DB92D /* nl */,
 				7D5CCF6D104C0CDC0026160F /* fr */,
+				7D18B1551128BCA8003C260F /* pt */,
 			);
 			name = "Read Me.rtf";
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				28A46DD10C43ED75007925EB /* English */,
 				287EF8B90C4F8A52002DB92D /* nl */,
 				7D5CCF6E104C0CFF0026160F /* fr */,
+				7D18B1541128BC94003C260F /* pt */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 				7D1051D5104A1FA900BAAF3F /* English */,
 				7D1051D7104A1FBC00BAAF3F /* nl */,
 				7D5CCF6C104C0CC40026160F /* fr */,
+				7D18B1561128BCB9003C260F /* pt */,
 			);
 			name = AppTrapPreferencePane.xib;
 			sourceTree = "<group>";
