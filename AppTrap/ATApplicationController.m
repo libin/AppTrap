@@ -26,7 +26,7 @@
 #import "ATUserDefaultKeys.h"
 
 // Amount to expand the window to show the filelist
-const int kWindowExpansionAmount = 174;
+const int kWindowExpansionAmount = 164;
 
 @implementation ATApplicationController
 
@@ -109,73 +109,14 @@ const int kWindowExpansionAmount = 174;
 
 - (void)awakeFromNib
 {
+	NSLog(@"awakeFromNib");
     // Restore the expanded state of the window
-    [self setExpanded:[[NSUserDefaults standardUserDefaults] boolForKey:ATPreferencesIsExpanded]];
-    
-    // Fill the text and button placeholders with localized text
-    [dialogueText1 setStringValue:NSLocalizedString(@"You are moving an application to the trash, do you want to move its associated system files too?", @"")];
-    [dialogueText2 setStringValue:NSLocalizedString(@"No files will be deleted until you empty the trash.", @"")];
-	[dialogueText3 setStringValue:NSLocalizedString(@"WARNING: The application may only be updating itself.", @"")];
-    [leaveButton setTitle:NSLocalizedString(@"Leave files", @"")];
-    [moveButton setTitle:NSLocalizedString(@"Move files", @"")];
-    
-    // Fix size and position for all elements
-    // Some code from: http://www.cocoabuilder.com/archive/message/cocoa/2002/6/18/62576
-    
-    // First text field
-    NSRect newFrame = [dialogueText1 frame];
-    newFrame.size.height = 10000.0; // an arbitrary large number
-    newFrame.size = [[dialogueText1 cell] cellSizeForBounds:newFrame];
-    newFrame.origin.y = [[mainWindow contentView] frame].size.height - newFrame.size.height - 20;
-    [dialogueText1 setFrame:newFrame];
-    
-    // Second text field
-    newFrame = [dialogueText2 frame];
-    newFrame.size.height = 10000.0; // an arbitrary large number
-    newFrame.size = [[dialogueText2 cell] cellSizeForBounds:newFrame];
-    newFrame.origin.y = [dialogueText1 frame].origin.y - newFrame.size.height - 8;
-    [dialogueText2 setFrame:newFrame];
+	BOOL shouldExpand = [[NSUserDefaults standardUserDefaults] boolForKey:ATPreferencesIsExpanded];
+	[self setExpanded:shouldExpand];
 	
-	// Third text field
-	newFrame = [dialogueText3 frame];
-	newFrame.size.height = 10000.0; // an arbitrary large number
-	newFrame.size = [[dialogueText3 cell] cellSizeForBounds:newFrame];
-	newFrame.origin.y = [dialogueText1 frame].origin.y - newFrame.size.height - 26;
-	[dialogueText3 setFrame:newFrame];
-    
-    // Default button
-    [moveButton sizeToFit];
-	[dialogueText3 setTextColor:[NSColor redColor]];
-    newFrame = [moveButton frame];
-    newFrame.size.width += 12; // To compensate for the somewhat broken sizeToFit method
-    newFrame.origin.x = [mainWindow frame].size.width - newFrame.size.width - 14;
-    newFrame.origin.y = [dialogueText2 frame].origin.y - newFrame.size.height - 24;
-    [moveButton setFrame:newFrame];
-    
-    // Cancel button
-    [leaveButton sizeToFit];
-    newFrame = [leaveButton frame];
-    newFrame.size.width += 12; // To compensate for the somewhat broken sizeToFit method
-    newFrame.origin.x = [moveButton frame].origin.x - newFrame.size.width;
-    newFrame.origin.y = [moveButton frame].origin.y;
-    [leaveButton setFrame:newFrame];
-    
-    // Disclosure triangle
-    newFrame = [disclosureTriangle frame];
-    newFrame.origin.y = [dialogueText2 frame].origin.y - newFrame.size.height - 25;
-    [disclosureTriangle setFrame:newFrame];
-    
-    // File list
-    newFrame = [filelistView frame];
-    newFrame.origin.y = [moveButton frame].origin.y - newFrame.size.height - 12;
-    [filelistView setFrame:newFrame];
-    
-    // And finally, the window itself
-    newFrame = [mainWindow frame];
-    newFrame.size.height = 30 + [dialogueText1 frame].size.height + 8 + [dialogueText2 frame].size.height + 8 + [moveButton frame].size.height + 20 + 14;
-    if (isExpanded)
-        newFrame.size.height += [filelistView frame].size.height + 20;
-    [mainWindow setFrame:newFrame display:NO];
+	if (shouldExpand) {
+		[disclosureTriangle setState:NSOnState];
+	}
 }
 
 - (void)sendVersion {
@@ -469,12 +410,27 @@ const int kWindowExpansionAmount = 174;
     // Expand or contract the window
     if (isExpanded != flag) {
         isExpanded = flag;
+		BOOL shouldExpand = [[NSUserDefaults standardUserDefaults] boolForKey:ATPreferencesIsExpanded];
+		NSLog(@"shouldExpand before: %d", shouldExpand);
+		[[NSUserDefaults standardUserDefaults] setBool:isExpanded forKey:ATPreferencesIsExpanded];
+		shouldExpand = [[NSUserDefaults standardUserDefaults] boolForKey:ATPreferencesIsExpanded];
+		NSLog(@"shouldExpand after: %d", shouldExpand);
         
-        if (isExpanded)
+        if (isExpanded) {
             [self extendMainWindowBy:kWindowExpansionAmount];
-        else
+		} else {			
             [self extendMainWindowBy:-kWindowExpansionAmount];
+		}
     }
+}
+
+- (IBAction)expandOrShrink:(id)sender {
+    // Expand or contract the window
+	if ([sender state] == NSOffState) {
+		[self setExpanded:NO];
+	} else if ([sender state] == NSOnState) {
+		[self setExpanded:YES];
+	}
 }
 
 #pragma mark -

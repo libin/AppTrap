@@ -58,5 +58,5 @@
 - (IBAction)toggleFilelist:(id)sender;
 - (void)extendMainWindowBy:(int)amount;
 - (void)setExpanded:(BOOL)flag;
-
+- (IBAction)expandOrShrink:(id)sender;
 @end

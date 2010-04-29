@@ -43,7 +43,7 @@
 			<object class="NSWindowTemplate" id="414193742">
 				<int key="NSWindowStyleMask">1</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{328, 522}, {536, 166}}</string>
+				<string key="NSWindowRect">{{328, 522}, {485, 166}}</string>
 				<int key="NSWTFlags">1886912512</int>
 				<string key="NSWindowTitle">AppTrap</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -70,7 +70,7 @@
 										<object class="NSTableView" id="71133183">
 											<reference key="NSNextResponder" ref="507621793"/>
 											<int key="NSvFlags">4352</int>
-											<string key="NSFrameSize">{494, 142}</string>
+											<string key="NSFrameSize">{443, 142}</string>
 											<reference key="NSSuperview" ref="507621793"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="_NSCornerView" key="NSCornerView">
@@ -413,7 +413,7 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 											<int key="NSTableViewDraggingDestinationStyle">0</int>
 										</object>
 									</object>
-									<string key="NSFrame">{{1, 1}, {494, 142}}</string>
+									<string key="NSFrame">{{1, 1}, {443, 142}}</string>
 									<reference key="NSSuperview" ref="16346397"/>
 									<reference key="NSNextKeyView" ref="71133183"/>
 									<reference key="NSDocView" ref="71133183"/>
@@ -448,7 +448,7 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 									<double key="NSPercent">0.99047619104385376</double>
 								</object>
 							</object>
-							<string key="NSFrame">{{20, -144}, {496, 144}}</string>
+							<string key="NSFrame">{{20, -144}, {445, 144}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<reference key="NSNextKeyView" ref="507621793"/>
 							<int key="NSsFlags">530</int>
@@ -460,13 +460,13 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<object class="NSButton" id="1063608410">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">264</int>
-							<string key="NSFrame">{{406, 12}, {116, 32}}</string>
+							<string key="NSFrame">{{302, 12}, {169, 32}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="265384">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">moveButton</string>
+								<string key="NSContents">Verplaats bestanden</string>
 								<object class="NSFont" key="NSSupport" id="217465071">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>
@@ -485,13 +485,13 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<object class="NSButton" id="777141130">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">264</int>
-							<string key="NSFrame">{{292, 12}, {114, 32}}</string>
+							<string key="NSFrame">{{166, 12}, {136, 32}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="53196105">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">leaveButton</string>
+								<string key="NSContents">Laat bestanden</string>
 								<reference key="NSSupport" ref="217465071"/>
 								<reference key="NSControlView" ref="777141130"/>
 								<int key="NSButtonFlags">-2038284033</int>
@@ -508,13 +508,13 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<object class="NSTextField" id="627034531">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">264</int>
-							<string key="NSFrame">{{95, 95}, {424, 51}}</string>
+							<string key="NSFrame">{{95, 95}, {373, 51}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="198776380">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">272629760</int>
-								<string type="base64-UTF8" key="NSContents">ZGlhbG9ndWVUZXh0MQpkaWFsb2d1ZVRleHQxCmRpYWxvZ3VlVGV4dDE</string>
+								<string key="NSContents">U verplaatst een programma naar de prullenmand. Wilt u de bijbehorende systeembestanden ook verplaatsen?</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande-Bold</string>
 									<double key="NSSize">13</double>
@@ -565,7 +565,7 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<object class="NSButton" id="867665652">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">264</int>
-							<string key="NSFrame">{{20, 22}, {13, 13}}</string>
+							<string key="NSFrame">{{20, 23}, {13, 13}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="857258487">
@@ -588,13 +588,13 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<object class="NSTextField" id="972933497">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{95, 73}, {424, 14}}</string>
+							<string key="NSFrame">{{95, 73}, {373, 14}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="969172723">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">dialogueText2</string>
+								<string key="NSContents">Er worden geen bestanden verwijderd totdat u de prullenmand leegt.</string>
 								<object class="NSFont" key="NSSupport" id="1018950299">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">11</double>
@@ -608,21 +608,24 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<object class="NSTextField" id="547532302">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{95, 51}, {424, 14}}</string>
+							<string key="NSFrame">{{95, 51}, {373, 14}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="373256289">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">dialogueText3</string>
+								<string key="NSContents">WAARSCHUWING: het programma werkt mogelijk alleen zichzelf bij.</string>
 								<reference key="NSSupport" ref="1018950299"/>
 								<reference key="NSControlView" ref="547532302"/>
 								<reference key="NSBackgroundColor" ref="709598961"/>
-								<reference key="NSTextColor" ref="630407910"/>
+								<object class="NSColor" key="NSTextColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MSAwIDAAA</bytes>
+								</object>
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{536, 166}</string>
+					<string key="NSFrameSize">{485, 166}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
@@ -1730,14 +1733,14 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<reference key="object" ref="178465651"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="16346397"/>
 							<reference ref="627034531"/>
 							<reference ref="465294600"/>
-							<reference ref="867665652"/>
 							<reference ref="972933497"/>
 							<reference ref="547532302"/>
 							<reference ref="1063608410"/>
 							<reference ref="777141130"/>
+							<reference ref="867665652"/>
+							<reference ref="16346397"/>
 						</object>
 						<reference key="parent" ref="414193742"/>
 					</object>
@@ -2655,9 +2658,9 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{274, 209}, {536, 166}}</string>
+					<string>{{157, 279}, {485, 166}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{274, 209}, {536, 166}}</string>
+					<string>{{157, 279}, {485, 166}}</string>
 					<boolean value="YES"/>
 					<boolean value="YES"/>
 					<string>{213, 107}</string>
@@ -3505,7 +3508,7 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 			<integer value="3100" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<string key="IBDocument.LastKnownRelativeProjectPath">AppTrap.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../AppTrap.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 	</data>
 </archive>
