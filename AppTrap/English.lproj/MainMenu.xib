@@ -43,7 +43,7 @@
 			<object class="NSWindowTemplate" id="414193742">
 				<int key="NSWindowStyleMask">1</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{328, 539}, {480, 149}}</string>
+				<string key="NSWindowRect">{{328, 555}, {485, 133}}</string>
 				<int key="NSWTFlags">1886912512</int>
 				<string key="NSWindowTitle">AppTrap</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -449,7 +449,7 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 									<double key="NSPercent">0.99047619104385376</double>
 								</object>
 							</object>
-							<string key="NSFrame">{{25, -144}, {435, 144}}</string>
+							<string key="NSFrame">{{25, -177}, {435, 144}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<reference key="NSNextKeyView" ref="507621793"/>
 							<int key="NSsFlags">658</int>
@@ -461,13 +461,13 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<object class="NSButton" id="1063608410">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">264</int>
-							<string key="NSFrame">{{350, 12}, {116, 32}}</string>
+							<string key="NSFrame">{{350, 23}, {116, 32}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="265384">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Move files</string>
+								<string key="NSContents">Uninstall</string>
 								<object class="NSFont" key="NSSupport" id="217465071">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>
@@ -486,13 +486,13 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<object class="NSButton" id="777141130">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">264</int>
-							<string key="NSFrame">{{236, 12}, {114, 32}}</string>
+							<string key="NSFrame">{{236, 23}, {116, 32}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="53196105">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Leave files</string>
+								<string key="NSContents">Update</string>
 								<reference key="NSSupport" ref="217465071"/>
 								<reference key="NSControlView" ref="777141130"/>
 								<int key="NSButtonFlags">-2038284033</int>
@@ -509,13 +509,13 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<object class="NSTextField" id="627034531">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">264</int>
-							<string key="NSFrame">{{95, 95}, {368, 34}}</string>
+							<string key="NSFrame">{{95, 79}, {368, 34}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="198776380">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">272629760</int>
-								<string key="NSContents">You are moving an application to the trash, do you want to move its associated system files too?</string>
+								<string key="NSContents">An Application change has been detected. Are you trying to update or uninstall the application?</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande-Bold</string>
 									<double key="NSSize">13</double>
@@ -546,7 +546,7 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 									<string>NeXT TIFF v4.0 pasteboard type</string>
 								</object>
 							</object>
-							<string key="NSFrame">{{30, 81}, {48, 48}}</string>
+							<string key="NSFrame">{{30, 65}, {48, 48}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="165643079">
@@ -566,7 +566,7 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<object class="NSButton" id="867665652">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">264</int>
-							<string key="NSFrame">{{20, 23}, {13, 13}}</string>
+							<string key="NSFrame">{{16, 15}, {13, 13}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="857258487">
@@ -589,14 +589,14 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<object class="NSTextField" id="972933497">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{95, 73}, {368, 14}}</string>
+							<string key="NSFrame">{{31, -26}, {432, 28}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="969172723">
-								<int key="NSCellFlags">68288064</int>
-								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">No files will be deleted until you empty the trash.</string>
-								<object class="NSFont" key="NSSupport" id="1018950299">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">272629760</int>
+								<string key="NSContents">If you are uninstalling the application, AppTrap will also move the following redundant files into the trash. No files will be deleted until you empty the trash.</string>
+								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">11</double>
 									<int key="NSfFlags">16</int>
@@ -606,27 +606,60 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 								<reference key="NSTextColor" ref="630407910"/>
 							</object>
 						</object>
-						<object class="NSTextField" id="547532302">
+						<object class="NSTextField" id="680638924">
 							<reference key="NSNextResponder" ref="178465651"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{95, 51}, {368, 14}}</string>
+							<string key="NSFrame">{{31, 13}, {53, 17}}</string>
 							<reference key="NSSuperview" ref="178465651"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSTextFieldCell" key="NSCell" id="373256289">
+							<object class="NSTextFieldCell" key="NSCell" id="918958881">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">WARNING: The application may only be updating itself.</string>
-								<reference key="NSSupport" ref="1018950299"/>
-								<reference key="NSControlView" ref="547532302"/>
+								<string key="NSContents">Details</string>
+								<reference key="NSSupport" ref="217465071"/>
+								<reference key="NSControlView" ref="680638924"/>
 								<reference key="NSBackgroundColor" ref="709598961"/>
-								<object class="NSColor" key="NSTextColor">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MSAwIDAAA</bytes>
-								</object>
+								<reference key="NSTextColor" ref="630407910"/>
+							</object>
+						</object>
+						<object class="NSButton" id="74472843">
+							<reference key="NSNextResponder" ref="178465651"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{110, 23}, {126, 32}}</string>
+							<reference key="NSSuperview" ref="178465651"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="95184836">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">134217728</int>
+								<string key="NSContents">Ignore this App</string>
+								<reference key="NSSupport" ref="217465071"/>
+								<reference key="NSControlView" ref="74472843"/>
+								<int key="NSButtonFlags">-2038284033</int>
+								<int key="NSButtonFlags2">129</int>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">200</int>
+								<int key="NSPeriodicInterval">25</int>
+							</object>
+						</object>
+						<object class="NSTextField" id="992848186">
+							<reference key="NSNextResponder" ref="178465651"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{95, 57}, {368, 14}}</string>
+							<reference key="NSSuperview" ref="178465651"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSTextFieldCell" key="NSCell" id="246007695">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">272760832</int>
+								<string key="NSContents">"Ignore this App" will add it to exclude list.</string>
+								<reference key="NSSupport" ref="26"/>
+								<reference key="NSControlView" ref="992848186"/>
+								<reference key="NSBackgroundColor" ref="709598961"/>
+								<reference key="NSTextColor" ref="630407910"/>
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{480, 149}</string>
+					<string key="NSFrameSize">{485, 133}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
@@ -1653,14 +1686,6 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">dialogueText3</string>
-						<reference key="source" ref="953626243"/>
-						<reference key="destination" ref="547532302"/>
-					</object>
-					<int key="connectionID">340</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">mainWindow</string>
 						<reference key="source" ref="953626243"/>
 						<reference key="destination" ref="414193742"/>
@@ -1674,6 +1699,14 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<reference key="destination" ref="867665652"/>
 					</object>
 					<int key="connectionID">379</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">cancel:</string>
+						<reference key="source" ref="953626243"/>
+						<reference key="destination" ref="74472843"/>
+					</object>
+					<int key="connectionID">390</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1720,12 +1753,14 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="627034531"/>
 							<reference ref="465294600"/>
-							<reference ref="972933497"/>
-							<reference ref="547532302"/>
 							<reference ref="1063608410"/>
 							<reference ref="777141130"/>
 							<reference ref="867665652"/>
 							<reference ref="16346397"/>
+							<reference ref="972933497"/>
+							<reference ref="680638924"/>
+							<reference ref="74472843"/>
+							<reference ref="992848186"/>
 						</object>
 						<reference key="parent" ref="414193742"/>
 					</object>
@@ -2338,18 +2373,46 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 						<reference key="parent" ref="16346397"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">338</int>
-						<reference key="object" ref="547532302"/>
+						<int key="objectID">380</int>
+						<reference key="object" ref="680638924"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="373256289"/>
+							<reference ref="918958881"/>
 						</object>
 						<reference key="parent" ref="178465651"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">339</int>
-						<reference key="object" ref="373256289"/>
-						<reference key="parent" ref="547532302"/>
+						<int key="objectID">381</int>
+						<reference key="object" ref="918958881"/>
+						<reference key="parent" ref="680638924"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">382</int>
+						<reference key="object" ref="74472843"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="95184836"/>
+						</object>
+						<reference key="parent" ref="178465651"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">383</int>
+						<reference key="object" ref="95184836"/>
+						<reference key="parent" ref="74472843"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">388</int>
+						<reference key="object" ref="992848186"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="246007695"/>
+						</object>
+						<reference key="parent" ref="178465651"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">389</int>
+						<reference key="object" ref="246007695"/>
+						<reference key="parent" ref="992848186"/>
 					</object>
 				</object>
 			</object>
@@ -2506,9 +2569,12 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 					<string>334.IBShouldRemoveOnLegacySave</string>
 					<string>335.IBPluginDependency</string>
 					<string>335.IBShouldRemoveOnLegacySave</string>
-					<string>338.IBPluginDependency</string>
-					<string>338.ImportedFromIB2</string>
-					<string>339.IBPluginDependency</string>
+					<string>380.IBPluginDependency</string>
+					<string>381.IBPluginDependency</string>
+					<string>382.IBPluginDependency</string>
+					<string>383.IBPluginDependency</string>
+					<string>388.IBPluginDependency</string>
+					<string>389.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.ImportedFromIB2</string>
 					<string>56.IBPluginDependency</string>
@@ -2643,9 +2709,9 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{88, 248}, {480, 149}}</string>
+					<string>{{621, 671}, {485, 133}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{88, 248}, {480, 149}}</string>
+					<string>{{621, 671}, {485, 133}}</string>
 					<boolean value="YES"/>
 					<boolean value="YES"/>
 					<string>{213, 107}</string>
@@ -2694,7 +2760,10 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
@@ -2746,7 +2815,7 @@ AADBtLdEAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA5AA</
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">379</int>
+			<int key="maxID">390</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
