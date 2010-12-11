@@ -26,7 +26,7 @@
 #import "ATUserDefaultKeys.h"
 
 // Amount to expand the window to show the filelist
-const int kWindowExpansionAmount = 164;
+const int kWindowExpansionAmount = 190;
 
 @implementation ATApplicationController
 
